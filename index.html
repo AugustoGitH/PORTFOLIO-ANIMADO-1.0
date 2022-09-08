@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="/style.css" rel="stylesheet">
+
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai&family=Roboto+Condensed&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="PAGE">
+        <img class="fogueteGuia" src="/Assets/elementoInterativo/foguete.png">
+        <div class="lineNav"></div>
+
+        <section class="myHome">
+            <div class="myHome_content">
+                <img src="/Assets/FotoPerfil.png">
+                <div>
+                    <h2>Meu perfil<h2/>
+                    <h1 id="apresentH1">Olá meu nome é augusto</h1>
+                    <p>SOU DESENVOLVEDOR FRONT-END</p>
+                    <a href="#contato"><button>CONTATO</button></a>
+                    <ul>
+                        <a target="_blank" href="https://github.com/AugustoGitH"><i class='bx bxl-github' ></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/augusto-westphal-67b7b3230/"><i class='bx bxl-linkedin' ></i></a>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="Tecnologias">
+            <div class="Tecnologias_content">
+                <h1 class="titlesPAG">TECNOLOGIAS</h1>
+                <ul>
+                    <li>
+                        <p>HTML</p>
+                        <p>Advenced</p>
+                    </li>
+                    <li>
+                        <p>CSS</p>
+                        <p>Advenced</p>
+                    </li>
+                    <li>
+                        <p>JavaScript</p>
+                        <p>Advenced</p>
+                    </li>
+                    <li>
+                        <p>Bootstrap</p>
+                        <p>Medium</p>
+                    </li>
+                    <li>
+                        <p>Jquery</p>
+                        <p>Basic</p>
+                    </li>
+                    <li>
+                        <p>Node Js</p>
+                        <p>Basic</p>
+                    </li>
+                    <li>
+                        <p>Fire Base</p>
+                        <p>Basic</p>
+                    </li>
+                </ul>
+                <div class="Blocos_Cenario">
+                    <div class="block color_blockHTML">
+                        <i class='bx bxl-html5'></i>
+                        <img class="mario" src="/Assets/elementoInterativo/png-transparent-super-mario-pixel-illustration-super-mario-bros-luigi-pixel-art-pixel-heroes-text-super-mario-bros.png">
+                    </div>
+                    <div class="block color_blockCSS">
+                        <i class='bx bxl-css3' ></i>
+                    </div>
+                    <div class="block color_blockJS">
+                        <i class='bx bxl-javascript' ></i>
+                        <img class="moeda" src="/Assets/elementoInterativo/Moeda.png">
+                    </div>
+                    <div class="block color_blockBS">
+                        <i class='bx bxl-bootstrap' ></i>
+                    </div>
+                    <div class="block color_blockJQ">
+                        <i class='bx bxl-jquery' ></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="Portifolio">
+            <div class="Portifolio_content">
+                <h1 class="titlesPAG">PORTIFÓLIO</h1>
+                <ul>
+                    <li id="todos" class="butfil tremer" onclick="filterTodos(this)">TODOS</li>
+                    <li id="appjs" class="butfil " onclick="filterappJs(this, AppJs)">APP JS</li>
+                    <li id="pagesclone" class="butfil" onclick="filterappJs(this, PagesClone)">PAGE CLONE</li>
+                    <li id="ladingpages" class="butfil" onclick="filterappJs(this, LadingPages)">LADING PAGE</li>
+                </ul>
+                <div class="container_portfolio">
+                </div>
+            </div>
+        </section>
+        <section id="contato" class="Contato">
+            <div class="Contato_content">
+                <h1 class="titlesPAG">CONTATO</h1>
+                <div class="imputsForms">
+                    <div class="cardsRedes">
+                        <div class="cardRed">
+                            <i class='bx bxs-envelope'></i>
+                            <h3>Email</h3>
+                            <a target="_blank" href="https://mail.google.com/mail/u/augustoc.westphal@gmail.com ">Enviar</a>
+                        </div>
+                        <div class="cardRed">
+                            <i class='bx bxl-whatsapp'></i>
+                            <h3>Whatsapp</h3>
+                            <a target="_blank" href="https://contate.me/port.augusto">Enviar</a>
+                        </div>
+                        <div class="cardRed">
+                            <i class='bx bxl-telegram'></i>
+                            <h3>Telegram</h3>
+                            <a target="_blank" href="https://criarmeulink.com.br/u/1652977405">Enviar</a>
+                        </div>
+                    </div>
+                    <form class="form_content" action="https://formsubmit.co/augustoc.westphal@gmail.com" method="POST">
+                        <p>Nome</p>
+                        <input id="nome"type="text" name = "name" placeholder="Digite seu nome" required>
+                        <p>Email</p>
+                        <input id="email"type="email" name="email" placeholder="Seu e-mail" required>                  
+                        <p>Project</p>
+                        <textarea id="coment" type="text" name="message" placeholder="Escreva sobre o projeto"></textarea>
+                        <input id="submit"type="submit" value="Enviar">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
