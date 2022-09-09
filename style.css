@@ -47,7 +47,7 @@ body{
     width: 50px;
     position: absolute;
     left: 46px;
-    top: 300px;
+    top: 200px;
     z-index: 4;
     transform: rotate(180deg);
     transition: 0.4s;
