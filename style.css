@@ -509,17 +509,17 @@ body{
     transition: 0.4s;
 }.tremer::after{
     content: "";
-    background-image: url(/Assets/elementoInterativo/motor-roach-sonicspin\ copiar.png);
+    background-image: url(/Assets/Persons_Gif/sonic_correndo.gif);
     background-position: center;
     background-size: contain;
-    width: 55px;
-    height: 55px;
+    width: 64px;
+    height:64px;
     position: absolute;
-    top: -57px;
+    top: -58px;
     right: 0;
     left: 0;
     margin: auto;
-    animation: rodar 0.2s linear infinite;
+    /* animation: rodar 0.2s linear infinite; */
     
 }
 @keyframes rodar {
@@ -601,12 +601,12 @@ body{
 
 @media (max-width: 700px) {
     .butfil{
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
     .tremer::after{
-        width: 40px;
-        height: 40px;
-        top: -40px
+        width: 50px;
+        height: 50px;
+        top: -45px
     }
     .Portifolio{
         padding: 0vh 0 30vh 0;
