@@ -410,9 +410,8 @@ body{
     .block{
         margin-right: 1rem;
     }.Tecnologias{
-        max-height: 4000px;
-        padding: 0vw 0 20vw 0;
-        width: 100%;
+        padding: 0vw 0 30vw 0;
+
     }
 }
 @media (max-width: 500px){ 
@@ -610,7 +609,7 @@ body{
         top: -40px
     }
     .Portifolio{
-        padding: 20vh 0 20vh 0;
+        padding: 0vh 0 30vh 0;
     }
 }
 @media (max-width: 600px) {
@@ -835,7 +834,7 @@ textarea{
     }
 }@media (max-width: 700px) {
     .Contato{
-        padding: 20vw 0 20vh 0;
+        padding: 0vw 0 30vh 0;
     }
 }@media (max-width: 500px) {
     .cardRed{
