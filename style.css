@@ -35,7 +35,7 @@ body{
     position: relative;
 }
 .lineNav{
-    background-color: var(--backgroundYellow);
+    background-color: rgb(150, 150, 240);
     border-radius: 10px;
     height: 100%;
     left: 70px;
@@ -141,6 +141,9 @@ body{
     margin-right: 1rem;
     transition: var(--transitionPadrão);
     width: 50px;
+}.myHome_content ul a:hover  i{
+    box-shadow: none;
+    transform: translate(3px, 3px);
 }
 
 @media (max-width: 850px){
@@ -548,7 +551,11 @@ body{
     margin: 1rem;
     transition: 0.3s;
     cursor: pointer;
-}.cards_sites::before{
+}.cards_sites:hover{
+    margin-bottom: -3rem;
+    z-index: 3;
+}
+.cards_sites::before{
     content: "";
     position: absolute;
     top: 0;
@@ -570,7 +577,7 @@ body{
     transition: 0.5s;
 }
 .cards_sites img{width: 100%;}
-.cards_sites:hover{margin: 0;}
+
 .borderNetF::after{background-color: rgb(242, 26, 26);}
 .borderNetF::before{background-color: rgb(146, 6, 6);}
 .borderGerad::before{background-color: rgb(9, 42, 83);}
