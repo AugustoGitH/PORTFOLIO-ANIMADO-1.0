@@ -72,33 +72,8 @@ body{
         width: 40px;
     }
 }
-header{
-    width: 100%;
-    position: fixed;
-    top: 0;
-    background-color: #070a15;
-    padding-top: 1.4rem;
-    padding-bottom: 1.4rem;
-    z-index: 100;
-}
 
-.header_content{
-    display: flex;
-    justify-content: center;
-}
-.header_content ul{
-    margin: 0 1rem 0 1rem;
-    font-size: 1.5rem;
-}.header_content a::after{
-    content: "/";
-    margin: 0 10px 0 10px;
-    color:white;
-}.header_content ul a{
-    color:#b58eff;
-    transition: var(--transitionPadrão);
-}.header_content ul a:hover{
-    letter-spacing: 2px;
-}
+
 
 .myHome{
     /* background-color: white; */
