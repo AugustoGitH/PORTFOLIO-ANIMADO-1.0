@@ -78,7 +78,7 @@ body{
 .myHome{
     /* background-color: white; */
     max-height: 4000px;
-    padding: 20vw 0 10vw 0;
+    padding: 20vw 0 20vw 0;
     width: 100%;
 }
 .myHome_content{
@@ -199,7 +199,7 @@ body{
 
 .Tecnologias{
     max-height: 4000px;
-    padding: 10vw 0 10vw 0;
+    padding: 0vw 0 10vw 0;
     width: 100%;
 }.Tecnologias_content{margin-right: var(--marginRightContent)}
 .titlesPAG{
