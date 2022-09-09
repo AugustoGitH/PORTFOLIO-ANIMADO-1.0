@@ -633,11 +633,11 @@ body{
     max-height: 500px;
     background-color: white;
     z-index: 98;
-    padding-left: 4rem;
+    padding-left: 5rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
     line-height: 40px;
     box-shadow: 5px 5px rgb(197, 171, 171);
     transform: translate(1000px);
@@ -678,7 +678,6 @@ body{
     align-items: center;
     justify-content: space-around;
     position: relative;
-    width: 90%;
 }.poop_content h1{
     display: inline;
 }
@@ -741,6 +740,7 @@ body{
         height: 30px;
     }.recolherIcon{
         font-size: 40px;
+        left: -80px;
     }
 } 
 /* ----------------------------------------------------- */
