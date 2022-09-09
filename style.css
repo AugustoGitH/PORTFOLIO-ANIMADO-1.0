@@ -630,7 +630,7 @@ body{
     top: 50%;
     right: 0;
     width: 600px;
-    max-height: 300px;
+    max-height: 500px;
     background-color: white;
     z-index: 98;
     padding-left: 4rem;
@@ -656,6 +656,7 @@ body{
 .part01Poop a{
     text-decoration: none;
     background-color: red;
+    font-weight: bold;
     font-size: 1.4rem;
     box-shadow: 3px 3px rgb(247, 141, 141);
     color: white;
@@ -677,37 +678,69 @@ body{
     align-items: center;
     justify-content: space-around;
     position: relative;
+    width: 90%;
+}.poop_content h1{
+    display: inline;
 }
 .poop_content ul i{
     font-size: 50px;
     color: var(--colorDarkBlack)
 }
-.bx-check{
-    color: rgb(12, 175, 12);
+.bx-check,.bx-x{
+    color: rgb(0, 255, 0);
     font-size: 40px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(62, 45, 45);
+    border-radius: 50%;
+    box-shadow: 3px 3px rgb(160, 133, 133);
+    margin-left: 10px;
+    text-shadow: 0px 0px 12px rgb(57, 253, 57);
 }
 .bx-x{
-    color: red;
+    color: rgb(255, 33, 33);
     font-size: 40px;
+    text-shadow: 0px 0px 12px rgb(230, 95, 95);
 }
 .nomeProject{
     color: var(--colorDarkBlack)
 }
-@media (max-width: 600px){
+@media (max-width: 700px){
     .poopInfos{
-        width: 300px;
-        height: 170px;
+        width: 470px;
     }.poop_content img{
         transform: scale(0.8)
-    }.part01Poop a{
-        font-size: 0.8rem;
-    }.part01Poop i{
-        font-size: 30px;
-    }.bx-chevrons-right{
-        font-size: 10px;
     }.part01Poop h1{
+        line-height: 1.8rem;
+    }.poopInfos ul i{
+        font-size: 40px;
+    }.poop_content a{
         font-size: 1.4rem;
-        line-height: 1.3rem;
+    }
+} 
+@media (max-width: 600px){
+    .poopInfos{
+        width: 70vw;
+    }.poop_content img{
+        max-width: 160px;
+        min-width: 100px;
+
+    }.part01Poop a{
+        font-size: 0.9rem;
+    }.part01Poop ul i{
+        font-size: 35px;
+    }.part01Poop h1{
+        font-size: 1.6rem;
+        line-height: 1.4rem;
+    }.bx-check,.bx-x{
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+    }.recolherIcon{
+        font-size: 40px;
     }
 } 
 /* ----------------------------------------------------- */
