@@ -35,7 +35,7 @@ body{
     position: relative;
 }
 .lineNav{
-    background-color: rgb(150, 150, 240);
+    background-color: var(--backgroundYellow);
     border-radius: 10px;
     height: 100%;
     left: 70px;
@@ -71,6 +71,33 @@ body{
         left: 12px;
         width: 40px;
     }
+}
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #070a15;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+    z-index: 100;
+}
+
+.header_content{
+    display: flex;
+    justify-content: center;
+}
+.header_content ul{
+    margin: 0 1rem 0 1rem;
+    font-size: 1.5rem;
+}.header_content a::after{
+    content: "/";
+    margin: 0 10px 0 10px;
+    color:white;
+}.header_content ul a{
+    color:#b58eff;
+    transition: var(--transitionPadrão);
+}.header_content ul a:hover{
+    letter-spacing: 2px;
 }
 
 .myHome{
@@ -276,6 +303,7 @@ body{
     .Tecnologias_content ul li{
         font-size: 1.3rem;
         margin: 5px;
+        letter-spacing: 1px;
     }
 }
 
@@ -420,8 +448,10 @@ body{
     }.mario{
         width: 30px;
         top: -55px;
+        left: 0px;
     }.moeda{
         width: 30px;
+        left: 0;
     }
     @keyframes fluter {
         0%, 100%{
@@ -454,17 +484,13 @@ body{
 }
 .butfil{
     margin: 10px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: 2px;
-    color: #FF8C32;
     padding: 10px;
-    color: #000000;
     cursor: pointer;
     transition: 0.3s;
     font-weight: bold;
-    color: #FFFFFF;
-    background: #b8b8b8;
-    text-shadow: 4px 3px 0 #7A7A7A;
+    color: #0a0928;
     text-align: center;
 }.butfil:hover{
     box-shadow: none;
@@ -552,8 +578,7 @@ body{
     transition: 0.3s;
     cursor: pointer;
 }.cards_sites:hover{
-    margin-bottom: -3rem;
-    z-index: 3;
+    transform: scale(0.9);
 }
 .cards_sites::before{
     content: "";
@@ -606,7 +631,6 @@ body{
     .butfil{
         margin: 3px;
         font-size: 0.8rem;
-        text-shadow: 2px 2px #7A7A7A;
         
     }.Portifolio_content ul{
         margin-top: 50px;
@@ -641,7 +665,7 @@ body{
     margin: auto;
     cursor: pointer;
     transition: 0.3s;
-}.recolherIcon:hover{transform: translate(-10px);}
+}.recolherIcon:hover{transform: translate(10px);}
 .part01Poop a{
     text-decoration: none;
     background-color: red;
@@ -652,7 +676,10 @@ body{
     letter-spacing: 2px;
     cursor: pointer;
     transition: 0.3s;
-}.part01Poop a:hover{box-shadow: none;}
+}.part01Poop a:hover{
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
 .part01Poop span{
     display: flex;
     align-items: center;
@@ -671,11 +698,11 @@ body{
     font-size: 50px;
     color: var(--colorDarkBlack)
 }
-.bx-check{
+.checkIcon{
     color: rgb(12, 175, 12);
     font-size: 40px;
 }
-.bx-x{
+.XIcon{
     color: red;
     font-size: 40px;
 }
