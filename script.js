@@ -191,10 +191,11 @@ function criarpoopInfo(obj){
 
     let iconVerify = document.createElement("i")
     if(obj.ativo == true){
-        iconVerify.classList.add("bx", "bx-check", "checkIcon")
+        iconVerify.classList.add("bx", "bx-check")
+
     }
     if(obj.ativo == false){
-        iconVerify.classList.add("bx", "bx-x", "XIcon")
+        iconVerify.classList.add("bx", "bx-x")
     }
     span.appendChild(iconVerify)
 

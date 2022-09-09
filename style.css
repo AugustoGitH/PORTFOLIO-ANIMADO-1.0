@@ -173,6 +173,10 @@ body{
     }.myHome_content button{
         font-size: 1.7rem;
     }
+    .myHome{
+        padding: 30vw 0 30vw 0;
+
+    }
     
 }
 @media (max-width: 500px){ 
@@ -402,9 +406,13 @@ body{
         transform: translateY(20px);
     }
 }
-@media (max-width: 750px) {
+@media (max-width: 700px) {
     .block{
         margin-right: 1rem;
+    }.Tecnologias{
+        max-height: 4000px;
+        padding: 0vw 0 20vw 0;
+        width: 100%;
     }
 }
 @media (max-width: 500px){ 
@@ -601,6 +609,9 @@ body{
         height: 40px;
         top: -40px
     }
+    .Portifolio{
+        padding: 20vh 0 20vh 0;
+    }
 }
 @media (max-width: 600px) {
     .butfil{
@@ -639,6 +650,8 @@ body{
     left: -60px;
     margin: auto;
     cursor: pointer;
+    color: var(--colorDarkBlack);
+    font-size: 50px;
     transition: 0.3s;
 }.recolherIcon:hover{transform: translate(10px);}
 .part01Poop a{
@@ -651,9 +664,6 @@ body{
     letter-spacing: 2px;
     cursor: pointer;
     transition: 0.3s;
-}.part01Poop a:hover{
-    box-shadow: none;
-    transform: translate(3px, 3px);
 }
 .part01Poop span{
     display: flex;
@@ -669,15 +679,15 @@ body{
     justify-content: space-around;
     position: relative;
 }
-.poop_content i{
+.poop_content ul i{
     font-size: 50px;
     color: var(--colorDarkBlack)
 }
-.checkIcon{
+.bx-check{
     color: rgb(12, 175, 12);
     font-size: 40px;
 }
-.XIcon{
+.bx-x{
     color: red;
     font-size: 40px;
 }
@@ -822,6 +832,10 @@ textarea{
         font-size: 1.4rem;
     }.cardRed i{
         font-size: 40px;
+    }
+}@media (max-width: 700px) {
+    .Contato{
+        padding: 20vw 0 20vh 0;
     }
 }@media (max-width: 500px) {
     .cardRed{
