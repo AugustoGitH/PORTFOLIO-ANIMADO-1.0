@@ -725,7 +725,7 @@ body{
 @media (max-width: 600px){
     .poopInfos{
         width: 70vw;
-        padding-left: 3rem;
+        
     }.poop_content img{
         max-width: 160px;
         min-width: 100px;
