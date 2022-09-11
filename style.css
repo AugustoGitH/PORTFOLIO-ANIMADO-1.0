@@ -725,11 +725,15 @@ body{
 @media (max-width: 600px){
     .poopInfos{
         width: 70vw;
+        padding-left: 3rem;
     }.poop_content img{
         max-width: 160px;
         min-width: 100px;
 
-    }.part01Poop a{
+    }.part01Poop{
+
+    }
+    .part01Poop a{
         font-size: 0.9rem;
     }.part01Poop ul i{
         font-size: 35px;
@@ -742,7 +746,7 @@ body{
         height: 30px;
     }.recolherIcon{
         font-size: 40px;
-        left: -80px;
+        left: -40px;
     }
 } 
 /* ----------------------------------------------------- */
