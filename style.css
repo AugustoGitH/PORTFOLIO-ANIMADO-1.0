@@ -599,6 +599,8 @@ body{
 .borderVelh::before{background-color: rgb(6, 46, 73);}
 .borderVelh::after{background-color: rgb(9, 48, 127);}
 
+.bordercommerce::after{background-color: rgb(245, 249, 2);}
+.bordercommerce::before{background-color: rgb(163, 155, 9);}
 @media (max-width: 700px) {
     .butfil{
         font-size: 1.3rem;
@@ -884,5 +886,64 @@ textarea{
         font-size: 1rem;
     }.form_content p{
         font-size: 1.3rem;
+    }
+}
+
+.video_port{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #0c265e88;
+    backdrop-filter: blur(20px);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#iframe{
+    width: 70%;
+    height: 80%;
+    box-shadow: 7px 7px rgb(77, 77, 56);
+    border-radius: 30px;
+}
+
+
+
+.buttonSairIf{
+    font-size: 2rem;
+    background-color: #6af41a;
+    color: black;
+    text-transform: uppercase;
+    padding: 8px 40px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 4px 4px #3EC70B;
+    margin-bottom: 1rem;
+    transition: 0.2s;
+}.buttonSairIf:hover{
+    box-shadow: none;
+    transform: translate(4px, 4px);
+}
+@media (max-width: 800px){
+    #iframe{
+        width: 100%;
+    }.closeIframe{
+        font-size: 40px;
+    }
+}
+@media (max-width: 500px){
+    #iframe{
+        width: 100%;
+        height: 300px;
+        margin-top: 3rem;
+    }.closeIframe{
+        font-size: 40px;
+    }.video_port{
+        align-items: flex-start;
+    }.buttonSairIf{
+        font-size: 20px;
     }
 }

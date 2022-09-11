@@ -56,76 +56,7 @@ function digitarInner(string, time1, time2){
     
 }
 const containerPort = document.querySelector(".container_portfolio")
-const PagesClone = "Pages Clone"
-const AppJs = "App Js"
-const LadingPages = "Lading Pages"
-const projetos = [
-    {
-        id: 0,
-        name: "Clone Netflix",
-        class: PagesClone,
-        classColor: "borderNetF",
-        url: "https://cerulean-choux-b17bcc.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "megamanGif",
-            widht: "170px"
-        }
-    },
-    {
-        id: 1,
-        name: "Gerador de Senhas",
-        class: AppJs,
-        classColor: "borderGerad",
-        url: "https://stirring-biscochitos-33f31d.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "LuigiGif",
-            widht: "100px"
-        }
-    },
-    {
-        id: 2,
-        name: "Lading Page Imobiliaria",
-        class: LadingPages,
-        classColor: "borderIMob",
-        url: "",
-        ativo: false,
-        techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "sonicGif",
-            widht: "150px"
-        }
-    },
-    {
-        id: 3,
-        name: "Lading Page Roupas",
-        class: LadingPages,
-        classColor: "borderRoup",
-        url: "https://fastidious-zabaione-407f85.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "zeldaGif",
-            widht: "150px"
-        }
-    },
-    {
-        id: 4,
-        name: "Jogo da Velha",
-        class: AppJs,
-        classColor: "borderVelh",
-        url: "https://keen-baklava-394a7c.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "marioGif",
-            widht: "120px"
-        }
-    }
-]
+
 
 
 function criarprojetos(obj){
@@ -201,9 +132,20 @@ function criarpoopInfo(obj){
 
     let a = document.createElement("a")
     part01Poop.appendChild(a)
-    a.innerHTML = "Visitar"
+
+    if(obj.video.activated === true){
+        a.innerHTML = "Assistir"
+    }if(obj.video.activated === false){
+        a.innerHTML = "Visitar"
+    }
     a.addEventListener("click", ()=>{
-        document.querySelector(".poopInfos").remove()
+        if(obj.video.activated === false){
+            a.href = obj.url
+            a.target = "_blank"
+            document.querySelector(".poopInfos").remove()
+        }if(obj.video.activated === true){
+            abrirvideoRep(obj)
+        }
     })
 
     let ul = document.createElement("ul")
@@ -215,8 +157,6 @@ function criarpoopInfo(obj){
 
 
     h1.innerHTML = obj.name.toUpperCase()
-    a.href = obj.url
-    a.target = "_blank"
     img.src = "/Assets/Persons_Gif/"+ obj.personG.nome + ".gif"
     img.style.width = obj.personG.widht
 
@@ -229,7 +169,21 @@ function criarpoopInfo(obj){
 
 
 
-
+function abrirvideoRep(obj){
+    document.querySelector(".poopInfos").remove()
+    let video_port = document.createElement("div")
+    video_port.classList.add("video_port")
+    document.body.appendChild(video_port)
+    video_port.innerHTML = `<iframe id="iframe" src=${obj.video.url_video } title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    let buttonSair = document.createElement("p")
+    buttonSair.classList.add("buttonSairIf")
+    buttonSair.innerHTML = "Sair"
+    video_port.appendChild(buttonSair)
+    buttonSair.addEventListener("click", ()=>{
+        video_port.remove()
+    })
+    
+}
 
 function limparCards(){
     let cards = document.querySelectorAll(".cards_sites")
@@ -279,3 +233,6 @@ function ckecksonic(el){
     console.log(el.id)
     
 }
+
+
+
