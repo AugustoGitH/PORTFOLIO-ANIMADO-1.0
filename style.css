@@ -834,7 +834,6 @@ body{
 .form_content input:focus, textarea:focus{
     box-shadow: none;
     transform: translate(4px, 4px);
-    text-transform: capitalize;
 }
 textarea{
     display: block;
