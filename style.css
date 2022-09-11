@@ -829,6 +829,7 @@ body{
     border-radius: 10px;
     border: none;
     transition: 0.3s;
+    color: black;
 }
 .form_content input:focus, textarea:focus{
     box-shadow: none;
