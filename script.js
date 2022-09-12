@@ -3,6 +3,7 @@ const liner = document.querySelector(".lineNav")
 const apresentH1 = document.querySelector("#apresentH1")
 
 
+// ----------------EVENT-SCROLL-FOGUETE----------------
 document.addEventListener("DOMContentLoaded", ()=>{
     document.addEventListener("scroll", ()=>{
         naveline()
@@ -11,12 +12,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
     atualizaWinCards(projetos)
 })
 function naveline(){
-    let postionint = parseInt(window.scrollY) + 300
     let positionString = String(parseInt(window.scrollY) + 270)
-    
     naveIcon.style.top = positionString +"px"
-
 }
+// ----------------------------------------------------
+
+// ----------------DIGITAR-MENSAGEM-HOME-----------------
 function digitarH1(){
 
     digitarInner("Olá meu nome é Augusto", 0.3, 4.3)
@@ -55,10 +56,10 @@ function digitarInner(string, time1, time2){
     }, time2*1000)
     
 }
+// ----------------------------------------------------
+
+// ----------------ADICIONAR-PROJETOS-PORTIFOLIO-----------------
 const containerPort = document.querySelector(".container_portfolio")
-
-
-
 function criarprojetos(obj){
     let card = document.createElement("div")
     card.id = obj.id
@@ -68,15 +69,12 @@ function criarprojetos(obj){
     card.addEventListener("click", (ev)=>{
         if(!document.querySelector(".poopInfos")){
             criarpoopInfo(projetos[ev.target.parentNode.id])
-            
         }
         else{
             document.querySelector(".poopInfos").remove()        
-            
             criarpoopInfo(projetos[ev.target.parentNode.id])
         }
     })
-
     let img = document.createElement("img")
     card.appendChild(img)
     img.src = "/Assets/Projects_Imgs/"+ obj.name + ".png"
@@ -86,13 +84,13 @@ function addProjectsWindow(array){
         criarprojetos(el)
     })
 }
+// ----------------------------------------------------
 
+// ----------------CRIAR-POOP-INFOS-PROJECTS-----------------
 function criarpoopInfo(obj){
     let poopInfos = document.createElement("div")
     poopInfos.classList.add("poopInfos")
     document.body.appendChild(poopInfos)
-
-    
 
     let poop_content = document.createElement("div")
     poop_content.classList.add("poop_content")
@@ -165,10 +163,9 @@ function criarpoopInfo(obj){
 
     }, 100)
 }
+// ----------------------------------------------------
 
-
-
-
+// ----------------CRIAR-DIV-IFRAME-----------------
 function abrirvideoRep(obj){
     document.querySelector(".poopInfos").remove()
     let video_port = document.createElement("div")
@@ -182,9 +179,7 @@ function abrirvideoRep(obj){
     buttonSair.addEventListener("click", ()=>{
         video_port.remove()
     })
-    
 }
-
 function limparCards(){
     let cards = document.querySelectorAll(".cards_sites")
     cards.forEach((card)=>{
@@ -199,7 +194,6 @@ function filterTodos(el){
     ckecksonic(el)
     atualizaWinCards(projetos)
 }
-
 function filterappJs(el, elementFilter){
     ckecksonic(el)
     limparCards()
@@ -209,29 +203,15 @@ function filterappJs(el, elementFilter){
     let arrayNew = projetos.filter(func)
     addProjectsWindow(arrayNew)
 }
+// ----------------------------------------------------
 
+// -----------------CHECKED-SONIC----------------------
 function ckecksonic(el){
     let butfil = document.querySelectorAll(".butfil")
-    let sonic = document.querySelector(".sonic")
-    let positionel = el. getBoundingClientRect()
-    console.log(positionel)
-    // if(el.id == "todos"){
-    //     sonic.style.left = "20px"
-    // }
-    // if(el.id == "appjs"){
-    //     sonic.style.left = "140px"
-    // }if(el.id == "pagesclone"){
-    //     sonic.style.left = "290px"
-    // }
-    // if(el.id == "ladingpages"){
-    //     sonic.style.left = "500px"
-    // }
     butfil.forEach((el)=>{
         el.classList.remove("tremer")
     })
     el.classList.add("tremer")
-    console.log(el.id)
-    
 }
 
 
