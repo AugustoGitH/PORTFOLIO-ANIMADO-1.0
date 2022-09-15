@@ -40,7 +40,7 @@ body{
     display: flex;
     justify-content: end;
     position: relative;
-    zoom: 1;
+    zoom: 0.9;
 }
 /* ---------------------------------EXTRACONTAINER--------------------------------- */
 .lineNav{
