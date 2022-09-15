@@ -40,7 +40,6 @@ body{
     display: flex;
     justify-content: end;
     position: relative;
-    zoom: 0.9;
 }
 /* ---------------------------------EXTRACONTAINER--------------------------------- */
 .lineNav{
@@ -80,9 +79,11 @@ body{
 }
 /* ---------------------------------SECTIONHOME--------------------------------- */
 .myHome{
-    max-height: 4000px;
-    padding: 20vw 0 20vw 0;
+    height: 100vh;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 .myHome_content{
     align-items: center; 
