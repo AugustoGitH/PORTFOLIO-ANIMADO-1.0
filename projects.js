@@ -42,7 +42,7 @@ const projetos = [
         name: "Calculadora Simples",
         class: AppJs,
         classColor: "borderIMob",
-        url: "",
+        url: "https://visionary-torrone-648cb5.netlify.app",
         ativo: true,
         techs: ["html5", "css3", "javascript"],
         personG: {
@@ -111,7 +111,7 @@ const projetos = [
         name: "Quiz Interativo",
         class: AppJs,
         classColor: "bordercommerce",
-        url: undefined,
+        url: "https://phenomenal-fudge-4fed79.netlify.app",
         ativo: true,
         techs: ["html5", "css3", "javascript"],
         personG:{
