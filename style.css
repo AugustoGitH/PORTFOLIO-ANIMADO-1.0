@@ -172,7 +172,7 @@ body{
         font-size: 1.3rem;
         margin-top: 7px;
     }.myHome_content button{font-size: 1.7rem;}
-    .myHome{padding: 30vw 0 30vw 0;}
+    
 }
 @media (max-width: 500px){ 
     .myHome_content h2{
