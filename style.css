@@ -40,7 +40,6 @@ body{
     display: flex;
     justify-content: end;
     position: relative;
-    zoom: 0.8;
 }
 /* ---------------------------------EXTRACONTAINER--------------------------------- */
 .lineNav{
@@ -516,7 +515,7 @@ body{
     max-height: 500px;
     position: relative;
     transition: var(--transitionPadr);
-    width: 500px;
+    width: 460px;
 }.cards_sites:hover{transform: scale(0.9);}
 .cards_sites::before{
     content: "";
