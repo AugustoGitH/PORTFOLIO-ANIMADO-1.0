@@ -39,11 +39,11 @@ const projetos = [
     },
     {
         id: 2,
-        name: "Lading Page Imobiliaria",
-        class: LadingPages,
+        name: "Calculadora Simples",
+        class: AppJs,
         classColor: "borderIMob",
         url: "",
-        ativo: false,
+        ativo: true,
         techs: ["html5", "css3", "javascript"],
         personG: {
             nome: "sonicGif",
@@ -103,6 +103,24 @@ const projetos = [
         video: {
             activated: true,
             url_video: 'https://www.youtube.com/embed/0eJr3VuCPM0'
+        }
+            
+    },
+    {
+        id: 6,
+        name: "Quiz Interativo",
+        class: AppJs,
+        classColor: "bordercommerce",
+        url: undefined,
+        ativo: true,
+        techs: ["html5", "css3", "javascript"],
+        personG:{
+            nome: "Browser",
+            widht: "180px"
+        },
+        video: {
+            activated: false,
+            url_video: undefined
         }
             
     }
