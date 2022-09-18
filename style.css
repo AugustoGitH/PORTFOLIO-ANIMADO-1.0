@@ -697,6 +697,7 @@ body{
     flex-wrap: wrap;
     justify-content: start;
     margin-top: 1rem;
+    padding: 1rem;
 }
 .cardRed{
     align-items: center;
