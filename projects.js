@@ -10,10 +10,6 @@ const projetos = [
         url: "https://cerulean-choux-b17bcc.netlify.app",
         ativo: true,
         techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "megamanGif",
-            widht: "170px"
-        },
         video: {
             activated: false,
             url_video: undefined
@@ -28,10 +24,6 @@ const projetos = [
         url: "https://stirring-biscochitos-33f31d.netlify.app",
         ativo: true,
         techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "LuigiGif",
-            widht: "100px"
-        },
         video: {
             activated: false,
             url_video: undefined
@@ -45,10 +37,6 @@ const projetos = [
         url: "https://visionary-torrone-648cb5.netlify.app",
         ativo: true,
         techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "sonicGif",
-            widht: "150px"
-        },
         video: {
             activated: false,
             url_video: undefined
@@ -62,10 +50,6 @@ const projetos = [
         url: "https://fastidious-zabaione-407f85.netlify.app",
         ativo: true,
         techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "zeldaGif",
-            widht: "150px"
-        },
         video: {
             activated: false,
             url_video: undefined
@@ -79,10 +63,6 @@ const projetos = [
         url: "https://keen-baklava-394a7c.netlify.app",
         ativo: true,
         techs: ["html5", "css3", "javascript"],
-        personG: {
-            nome: "marioGif",
-            widht: "120px"
-        },
         video: {
             activated: false,
             url_video: undefined
@@ -96,10 +76,6 @@ const projetos = [
         url: undefined,
         ativo: true,
         techs: ["html5", "css3", "javascript"],
-        personG:{
-            nome: "Browser",
-            widht: "180px"
-        },
         video: {
             activated: true,
             url_video: 'https://www.youtube.com/embed/0eJr3VuCPM0'
@@ -114,10 +90,6 @@ const projetos = [
         url: "https://phenomenal-fudge-4fed79.netlify.app",
         ativo: true,
         techs: ["html5", "css3", "javascript"],
-        personG:{
-            nome: "Browser",
-            widht: "180px"
-        },
         video: {
             activated: false,
             url_video: undefined

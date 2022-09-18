@@ -155,8 +155,8 @@ function criarpoopInfo(obj){
 
 
     h1.innerHTML = obj.name.toUpperCase()
-    img.src = "/Assets/Persons_Gif/"+ obj.personG.nome + ".gif"
-    img.style.width = obj.personG.widht
+    img.src = "/Assets/Persons_Gif/panda.gif"
+    // img.style.height = obj.personG.widht
 
     setTimeout(()=>{
         document.querySelector(".poopInfos").style.transform = "translate(0px)"
