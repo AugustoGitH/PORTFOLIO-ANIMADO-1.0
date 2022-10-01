@@ -557,6 +557,9 @@ body{
 
 .bordercommerce::after{background-color: rgb(245, 249, 2);}
 .bordercommerce::before{background-color: rgb(163, 155, 9);}
+
+.borderficha::after{background-color: #81a2e9;}
+.borderficha::before{background-color: #384d78;}
 @media (max-width: 700px) {
     .butfil{
         font-size: 1.3rem;

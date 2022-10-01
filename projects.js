@@ -4,77 +4,6 @@ const LadingPages = "Lading Pages"
 const projetos = [
     {
         id: 0,
-        name: "Clone Netflix",
-        name_img: "Clone Netflix",
-        class: PagesClone,
-        classColor: "borderNetF",
-        url: "https://cerulean-choux-b17bcc.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript"],
-        video: {
-            activated: false,
-            url_video: undefined
-        }
-
-    },
-    {
-        id: 1,
-        name: "Gerador de Senhas",
-        name_img: "Gerador de Senhas",
-        class: AppJs,
-        classColor: "borderGerad",
-        url: "https://stirring-biscochitos-33f31d.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript"],
-        video: {
-            activated: false,
-            url_video: undefined
-        }
-    },
-    {
-        id: 2,
-        name: "Calculadora Simples",
-        name_img: "Calculadora Simples",
-        class: AppJs,
-        classColor: "borderIMob",
-        url: "https://visionary-torrone-648cb5.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript"],
-        video: {
-            activated: false,
-            url_video: undefined
-        }
-    },
-    {
-        id: 3,
-        name: "Lading Page Roupas",
-        name_img: "Lading Page Roupas",
-        class: LadingPages,
-        classColor: "borderRoup",
-        url: "https://fastidious-zabaione-407f85.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript"],
-        video: {
-            activated: false,
-            url_video: undefined
-        }
-    },
-    {
-        id: 4,
-        name: "Jogo da Velha",
-        name_img: "Jogo da Velha",
-        class: AppJs,
-        classColor: "borderVelh",
-        url: "https://keen-baklava-394a7c.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript"],
-        video: {
-            activated: false,
-            url_video: undefined
-        }
-    },
-    {
-        id: 5,
         name: "E-Commerce Livros",
         name_img: "E-Commerce Livros",
         // class: AppJs,  ---- NÃO POSSUI CLASSE DETERMINADA
@@ -89,7 +18,93 @@ const projetos = [
             
     },
     {
+        id: 1,
+        name: "Ficha automática",
+        name_img: "Ficha automaticaRPG",
+        class: AppJs,
+        classColor: "borderficha",
+        url: "https://resplendent-clafoutis-4a563c.netlify.app",
+        ativo: true,
+        techs: ["html5", "css3", "javascript", "firebase"],
+        video: {
+            activated: false,
+            url_video: undefined
+        }
+            
+    },
+    {
+        id: 2,
+        name: "Clone Netflix",
+        name_img: "Clone Netflix",
+        class: PagesClone,
+        classColor: "borderNetF",
+        url: "https://cerulean-choux-b17bcc.netlify.app",
+        ativo: true,
+        techs: ["html5", "css3", "javascript"],
+        video: {
+            activated: false,
+            url_video: undefined
+        }
+
+    },
+    {
+        id: 3,
+        name: "Gerador de Senhas",
+        name_img: "Gerador de Senhas",
+        class: AppJs,
+        classColor: "borderGerad",
+        url: "https://stirring-biscochitos-33f31d.netlify.app",
+        ativo: true,
+        techs: ["html5", "css3", "javascript"],
+        video: {
+            activated: false,
+            url_video: undefined
+        }
+    },
+    {
+        id: 4,
+        name: "Calculadora Simples",
+        name_img: "Calculadora Simples",
+        class: AppJs,
+        classColor: "borderIMob",
+        url: "https://visionary-torrone-648cb5.netlify.app",
+        ativo: true,
+        techs: ["html5", "css3", "javascript"],
+        video: {
+            activated: false,
+            url_video: undefined
+        }
+    },
+    {
+        id: 5,
+        name: "Lading Page Roupas",
+        name_img: "Lading Page Roupas",
+        class: LadingPages,
+        classColor: "borderRoup",
+        url: "https://fastidious-zabaione-407f85.netlify.app",
+        ativo: true,
+        techs: ["html5", "css3", "javascript"],
+        video: {
+            activated: false,
+            url_video: undefined
+        }
+    },
+    {
         id: 6,
+        name: "Jogo da Velha",
+        name_img: "Jogo da Velha",
+        class: AppJs,
+        classColor: "borderVelh",
+        url: "https://keen-baklava-394a7c.netlify.app",
+        ativo: true,
+        techs: ["html5", "css3", "javascript"],
+        video: {
+            activated: false,
+            url_video: undefined
+        }
+    },
+    {
+        id: 7,
         name: "Quiz Interativo",
         name_img: "Quiz Interativo",
         class: AppJs,
@@ -103,19 +118,5 @@ const projetos = [
         }
             
     },
-    {
-        id: 7,
-        name: "Ficha automática",
-        name_img: "Ficha automaticaRPG",
-        class: AppJs,
-        classColor: "borderGerad",
-        url: "https://resplendent-clafoutis-4a563c.netlify.app",
-        ativo: true,
-        techs: ["html5", "css3", "javascript", "firebase"],
-        video: {
-            activated: false,
-            url_video: undefined
-        }
-            
-    }
+    
 ]
