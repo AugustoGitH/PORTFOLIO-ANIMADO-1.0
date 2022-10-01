@@ -77,7 +77,7 @@ function criarprojetos(obj){
     })
     let img = document.createElement("img")
     card.appendChild(img)
-    img.src = "/Assets/Projects_Imgs/"+ obj.name + ".png"
+    img.src = "/Assets/Projects_Imgs/"+ obj.name_img + ".png"
 }
 function addProjectsWindow(array){
     array.forEach((el)=>{
