@@ -617,12 +617,16 @@ body{
     background-color: red;
     font-weight: bold;
     font-size: 1.4rem;
-    box-shadow:var(--box-shadow-botao) rgb(247, 141, 141);
     color: white;
     padding: 3px 20px;
     letter-spacing: 2px;
     cursor: pointer;
     transition: var(--transitionPadr);
+    border:  2px solid red;
+}.part01Poop a:hover{
+    background-color: transparent;
+    color: black;
+    border:  2px solid black;
 }
 .poop_content{
     display: flex;
