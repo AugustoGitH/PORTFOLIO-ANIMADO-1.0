@@ -34,6 +34,21 @@ const projetos = [
     },
     {
         id: 2,
+        name: "Lading Page Barbearia",
+        name_img: "Barbearia",
+        class: LadingPages,
+        classColor: "borderNetF",
+        url: "",
+        ativo: false,
+        techs: ["html5", "css3", "javascript"],
+        video: {
+            activated: false,
+            url_video: undefined
+        }
+
+    },
+    {
+        id: 2,
         name: "Clone Netflix",
         name_img: "Clone Netflix",
         class: PagesClone,
