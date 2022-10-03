@@ -164,6 +164,9 @@ body{
     }
 }
 @media (max-width: 700px){
+    body{
+        zoom: 1;
+    }
     .myHome_content h2{
         font-size: 1.3rem;
         margin-bottom: 10px;
