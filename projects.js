@@ -48,7 +48,7 @@ const projetos = [
 
     },
     {
-        id: 2,
+        id: 3,
         name: "Clone Netflix",
         name_img: "Clone Netflix",
         class: PagesClone,
@@ -63,7 +63,7 @@ const projetos = [
 
     },
     {
-        id: 3,
+        id: 4,
         name: "Gerador de Senhas",
         name_img: "Gerador de Senhas",
         class: AppJs,
@@ -77,7 +77,7 @@ const projetos = [
         }
     },
     {
-        id: 4,
+        id: 5,
         name: "Calculadora Simples",
         name_img: "Calculadora Simples",
         class: AppJs,
@@ -91,7 +91,7 @@ const projetos = [
         }
     },
     {
-        id: 5,
+        id: 6,
         name: "Lading Page Roupas",
         name_img: "Lading Page Roupas",
         class: LadingPages,
@@ -105,7 +105,7 @@ const projetos = [
         }
     },
     {
-        id: 6,
+        id: 7,
         name: "Jogo da Velha",
         name_img: "Jogo da Velha",
         class: AppJs,
@@ -119,7 +119,7 @@ const projetos = [
         }
     },
     {
-        id: 7,
+        id: 8,
         name: "Quiz Interativo",
         name_img: "Quiz Interativo",
         class: AppJs,
