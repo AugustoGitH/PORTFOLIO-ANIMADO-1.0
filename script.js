@@ -3,7 +3,7 @@ const liner = document.querySelector(".lineNav")
 const apresentH1 = document.querySelector("#apresentH1")
 
 
-// ----------------EVENT-SCROLL-FOGUETE----------------
+
 document.addEventListener("DOMContentLoaded", ()=>{
     document.addEventListener("scroll", ()=>{
         naveline()
@@ -11,11 +11,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
     digitarH1()
     atualizaWinCards(projetos)
 })
+
+
+
 function naveline(){
     let positionString = String(parseInt(window.scrollY) + 270)
     naveIcon.style.top = positionString +"px"
 }
-// ----------------------------------------------------
+
 
 // ----------------DIGITAR-MENSAGEM-HOME-----------------
 function digitarH1(){
@@ -67,11 +70,11 @@ function criarprojetos(obj){
     containerPort.appendChild(card)
 
     card.addEventListener("click", (ev)=>{
-        if(!document.querySelector(".poopInfos")){
+        if(!document.querySelector(".poop_project")){
             criarpoopInfo(projetos[ev.target.parentNode.id])
         }
         else{
-            document.querySelector(".poopInfos").remove()        
+            document.querySelector(".poop_project").remove()        
             criarpoopInfo(projetos[ev.target.parentNode.id])
         }
     })
@@ -88,85 +91,73 @@ function addProjectsWindow(array){
 
 // ----------------CRIAR-POOP-INFOS-PROJECTS-----------------
 function criarpoopInfo(obj){
-    let poopInfos = document.createElement("div")
-    poopInfos.classList.add("poopInfos")
-    document.body.appendChild(poopInfos)
+
+    let poop_project = document.createElement("div")
+    poop_project.classList.add("poop_project")
+    document.body.appendChild(poop_project)
 
     let poop_content = document.createElement("div")
-    poop_content.classList.add("poop_content")
-    poopInfos.appendChild(poop_content)
+    poop_content.classList.add("poop_proj-content")
+    poop_project.appendChild(poop_content)
+
+    let fecha_poop = document.createElement("button")
+    fecha_poop.classList.add("fecha_poop")
+    poop_content.appendChild(fecha_poop)
 
     let iconArrow = document.createElement("i")
-    iconArrow.classList.add("bx", "bx-chevrons-right", "recolherIcon")
-    poop_content.appendChild(iconArrow)
+    iconArrow.classList.add("bx", "bx-right-arrow-alt")
+    fecha_poop.appendChild(iconArrow)
 
-    iconArrow.addEventListener("click", ()=>{
-        document.querySelector(".poopInfos").style.transform = "translate(2000px)"
+    fecha_poop.addEventListener("click", ()=>{
+        document.querySelector(".poop_project").style.transform = "translate(2000px)"
     })
 
-    let part01Poop = document.createElement("div")
-    part01Poop.classList.add("part01Poop")
-    poop_content.appendChild(part01Poop)
+    let article = document.createElement("article")
+    poop_content.appendChild(article)
 
     let img = document.createElement("img")
     poop_content.appendChild(img)
 
-    let span = document.createElement("span")
-    part01Poop.appendChild(span)
-
     let h1 = document.createElement("h1")
-    h1.classList.add("nomeProject")
-    span.appendChild(h1)
-
-    let iconVerify = document.createElement("i")
-    if(obj.ativo == true){
-        iconVerify.classList.add("bx", "bx-check")
-
-    }
-    if(obj.ativo == false){
-        iconVerify.classList.add("bx", "bx-x")
-    }
-    span.appendChild(iconVerify)
+    article.appendChild(h1)
 
     let a = document.createElement("a")
-    part01Poop.appendChild(a)
+    article.appendChild(a)
 
-    if(obj.video.activated === true){
-        a.innerHTML = "Assistir"
-    }if(obj.video.activated === false){
-        a.innerHTML = "Visitar"
-    }
+    obj.video.activated ? a.innerHTML = "Assistir" : a.innerHTML = "Visitar"
+
+
     a.addEventListener("click", ()=>{
-        if(obj.video.activated === false){
+        if(obj.video.activated){
+            abrirvideoRep(obj)
+        }else{
             a.href = obj.url
             a.target = "_blank"
             document.querySelector(".poopInfos").remove()
-        }if(obj.video.activated === true){
-            abrirvideoRep(obj)
         }
     })
 
+
     let ul = document.createElement("ul")
-    part01Poop.appendChild(ul)
+    article.appendChild(ul)
 
     obj.techs.forEach((tech)=>{
         ul.innerHTML += "<i class='bx bxl-"+tech+"'></i>"
     })
 
-
-    h1.innerHTML = obj.name.toUpperCase()
+    h1.innerHTML = obj.name
     img.src = "/Assets/Persons_Gif/panda.gif"
-    // img.style.height = obj.personG.widht
 
     setTimeout(()=>{
-        document.querySelector(".poopInfos").style.transform = "translate(0px)"
-
+        document.querySelector(".poop_project").style.transform = "translate(0px)"
     }, 100)
+    
 }
 // ----------------------------------------------------
 
 // ----------------CRIAR-DIV-IFRAME-----------------
 function abrirvideoRep(obj){
+
     document.querySelector(".poopInfos").remove()
     let video_port = document.createElement("div")
     video_port.classList.add("video_port")
@@ -212,6 +203,53 @@ function ckecksonic(el){
         el.classList.remove("tremer")
     })
     el.classList.add("tremer")
+}
+
+
+// -----------------INFOS-Techs----------------------
+
+function openInfos_tech(tech_id){
+    let containerInfos = document.createElement("div")
+    containerInfos.classList.add("containerInfos")
+    document.body.appendChild(containerInfos)
+
+    document.body.classList.add("blockScroll")
+
+    let titleH2 = document.createElement("h2")
+    let infosP = document.createElement("p")
+
+    let article = document.createElement("article")
+
+    let button_sair = document.createElement("button")
+    button_sair.innerText = "Fechar"
+    article.appendChild(button_sair)
+
+    button_sair.addEventListener("click", ()=>{
+        document.body.removeChild(containerInfos)
+        document.body.classList.remove("blockScroll")
+    })
+
+    let inf_tech = tech_infos.filter(obj_tech=>{
+        return  obj_tech.id.toLowerCase() === tech_id.toLowerCase()
+    })
+
+
+
+    let hiperlink_saibamais = document.createElement("a")
+    hiperlink_saibamais.innerText = "Saiba mais"
+    hiperlink_saibamais.href = inf_tech[0].link
+    hiperlink_saibamais.target = "_blank" 
+    article.appendChild(hiperlink_saibamais)
+
+
+    titleH2.innerText = "Mas o'que é " + inf_tech[0].name + "?"
+    infosP.innerHTML = inf_tech[0].infos
+
+    containerInfos.appendChild(titleH2)
+    containerInfos.appendChild(infosP)
+    containerInfos.appendChild(article)
+
+
 }
 
 

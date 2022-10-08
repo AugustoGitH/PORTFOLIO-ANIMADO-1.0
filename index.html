@@ -15,14 +15,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai&family=Roboto+Condensed&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="aviso">
+        <p>Clique em qualquer tecnologia para saber mais!</p>
+    </div>
     <div class="PAGE">
         <img class="fogueteGuia" src="/Assets/elementoInterativo/foguete.png">
         <div class="lineNav"></div>
         <section id="perfil" class="myHome">
             <div class="myHome_content">
                 <img src="/Assets/FotoPerfil.png">
-                <div>
-                    <h2>Meu perfil<h2/>
+                <article>
+                    <h2>Meu perfil</h2>
                     <h1 id="apresentH1"></h1>
                     <p>SOU DESENVOLVEDOR FRONT-END</p>
                     <a href="#contato"><button>CONTATO</button></a>
@@ -30,40 +33,34 @@
                         <a target="_blank" href="https://github.com/AugustoGitH"><i class='bx bxl-github' ></i></a>
                         <a target="_blank" href="https://www.linkedin.com/in/augusto-westphal-67b7b3230/"><i class='bx bxl-linkedin' ></i></a>
                     </ul>
-                </div>
+                </article>
             </div>
         </section>
         <section id="tech" class="Tecnologias">
             <div class="Tecnologias_content">
                 <h1 class="titlesPAG">TECNOLOGIAS</h1>
                 <ul>
-                    <li>
-                        <p>HTML</p>
-                        <p>Advenced</p>
+                    <li onclick="openInfos_tech('HTML')">
+                        <p>HTML5</p>
                     </li>
-                    <li>
-                        <p>CSS</p>
-                        <p>Advenced</p>
+                    <li onclick="openInfos_tech('CSS')">
+                        <p>CSS3</p>
                     </li>
-                    <li>
+                    <li onclick="openInfos_tech('JS')">
                         <p>JavaScript</p>
-                        <p>Advenced</p>
                     </li>
-                    <li>
+                    <li onclick="openInfos_tech('BT')">
                         <p>Bootstrap</p>
-                        <p>Medium</p>
                     </li>
-                    <li>
+                    <li onclick="openInfos_tech('JQ')">
                         <p>Jquery</p>
-                        <p>Basic</p>
                     </li>
-                    <li>
+                    <li onclick="openInfos_tech('NODE')">
                         <p>Node Js</p>
-                        <p>Basic</p>
                     </li>
-                    <li>
+                    <li onclick="openInfos_tech('FIREBASE')">
+                        <p>Google</p>
                         <p>Firebase Firestore</p>
-                        <p>Medium</p>
                     </li>
                 </ul>
                 <div class="Blocos_Cenario">
@@ -134,6 +131,7 @@
             </div>
         </section>
     </div>
+    <script src="/techs_infos.js"></script>
     <script src="/projects.js"></script>
     <script src="/script.js"></script>
 </body>
