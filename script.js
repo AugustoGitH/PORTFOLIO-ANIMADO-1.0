@@ -133,7 +133,7 @@ function criarpoopInfo(obj){
         }else{
             a.href = obj.url
             a.target = "_blank"
-            document.querySelector(".poopInfos").remove()
+            document.querySelector(".poop_project").remove()
         }
     })
 
@@ -158,7 +158,7 @@ function criarpoopInfo(obj){
 // ----------------CRIAR-DIV-IFRAME-----------------
 function abrirvideoRep(obj){
 
-    document.querySelector(".poopInfos").remove()
+    document.querySelector(".poop_project").remove()
     let video_port = document.createElement("div")
     video_port.classList.add("video_port")
     document.body.appendChild(video_port)
