@@ -9,7 +9,6 @@ const projetos = [
         // class: AppJs,  ---- NÃO POSSUI CLASSE DETERMINADA
         classColor: "bordercommerce",
         url: undefined,
-        ativo: true,
         techs: ["html5", "css3", "javascript"],
         video: {
             activated: true,
@@ -24,7 +23,6 @@ const projetos = [
         class: AppJs,
         classColor: "borderficha",
         url: "https://resplendent-clafoutis-4a563c.netlify.app",
-        ativo: true,
         techs: ["html5", "css3", "javascript", "firebase"],
         video: {
             activated: false,
@@ -38,8 +36,7 @@ const projetos = [
         name_img: "Barbearia",
         class: LadingPages,
         classColor: "borderNetF",
-        url: "",
-        ativo: false,
+        url: "https://barbaforteguarapari.netlify.app",
         techs: ["html5", "css3", "javascript"],
         video: {
             activated: false,
@@ -54,7 +51,6 @@ const projetos = [
         class: PagesClone,
         classColor: "borderNetF",
         url: "https://cerulean-choux-b17bcc.netlify.app",
-        ativo: true,
         techs: ["html5", "css3", "javascript"],
         video: {
             activated: false,
@@ -69,7 +65,6 @@ const projetos = [
         class: AppJs,
         classColor: "borderGerad",
         url: "https://stirring-biscochitos-33f31d.netlify.app",
-        ativo: true,
         techs: ["html5", "css3", "javascript"],
         video: {
             activated: false,
@@ -83,7 +78,6 @@ const projetos = [
         class: AppJs,
         classColor: "borderIMob",
         url: "https://visionary-torrone-648cb5.netlify.app",
-        ativo: true,
         techs: ["html5", "css3", "javascript"],
         video: {
             activated: false,
@@ -97,7 +91,6 @@ const projetos = [
         class: LadingPages,
         classColor: "borderRoup",
         url: "https://fastidious-zabaione-407f85.netlify.app",
-        ativo: true,
         techs: ["html5", "css3", "javascript"],
         video: {
             activated: false,
@@ -111,7 +104,6 @@ const projetos = [
         class: AppJs,
         classColor: "borderVelh",
         url: "https://keen-baklava-394a7c.netlify.app",
-        ativo: true,
         techs: ["html5", "css3", "javascript"],
         video: {
             activated: false,
@@ -125,7 +117,6 @@ const projetos = [
         class: AppJs,
         classColor: "bordercommerce",
         url: "https://phenomenal-fudge-4fed79.netlify.app",
-        ativo: true,
         techs: ["html5", "css3", "javascript"],
         video: {
             activated: false,
