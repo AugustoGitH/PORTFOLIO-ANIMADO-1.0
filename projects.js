@@ -36,7 +36,7 @@ const projetos = [
         name_img: "Barbearia",
         class: LadingPages,
         classColor: "borderNetF",
-        url: "https://barbaforteguarapari.netlify.app",
+        url: "https://barbaforteguarapari.com",
         techs: ["html5", "css3", "javascript"],
         video: {
             activated: false,
