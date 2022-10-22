@@ -12,7 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed&display=swap" rel="stylesheet">
 </head>
 <body translate="no">
     <div class="PAGE">
@@ -23,7 +23,7 @@
                 <img src="/Assets/FotoPerfil.png">
                 <article>
                     <h2>Meu perfil</h2>
-                    <h1 id="apresentH1"></h1>
+                    <h1 id="apresentH1">Olá meu nome é Augusto</h1>
                     <p>SOU DESENVOLVEDOR FRONT-END</p>
                     <a href="#contato"><button>CONTATO</button></a>
                     <ul>
@@ -86,11 +86,18 @@
                 <h1 class="titlesPAG">PORTFÓLIO</h1>
                 <ul>
                     <li id="todos" class="butfil tremer" onclick="filterTodos(this)">TODOS</li>
-                    <li id="appjs" class="butfil " onclick="filterappJs(this, AppJs)">APP JS</li>
-                    <li id="pagesclone" class="butfil" onclick="filterappJs(this, PagesClone)">PAGE CLONE</li>
-                    <li id="ladingpages" class="butfil" onclick="filterappJs(this, LadingPages)">LADING PAGE</li>
+                    <li id="aplicativos" class="butfil " onclick="filterProjects(this, Aplicativos)">APLICATIVOS</li>
+                    <li id="pagesclone" class="butfil" onclick="filterProjects(this, PagesClone)">SITES CLONES</li>
+                    <li id="ladingpages" class="butfil" onclick="filterProjects(this, LadingPages)">LADING PAGES</li>
+                    <li id="ecommerce" class="butfil" onclick="filterProjects(this, Ecommerce)">E-COMMERCE'S</li>
                 </ul>
-                <div class="container_portfolio"></div>
+                <div class="container_portfolio visibilityHiddenCont"></div>
+                <span class="visibility_port">
+                    <div onclick="visibilityProjects(this)">
+                        <p class="visibility_display">Ver mais</p>
+                        <i class='bx bx-down-arrow-alt icon_indication' ></i>
+                    </div>
+                </span>
             </div>
         </section>
         <section id="contato" class="Contato">

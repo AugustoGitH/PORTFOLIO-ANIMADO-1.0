@@ -6,7 +6,7 @@ const apresentH1 = document.querySelector("#apresentH1")
 
 document.addEventListener("DOMContentLoaded", ()=>{
     document.addEventListener("scroll", ()=>{
-        naveline()
+        naveLine()
     })
     digitarH1()
     atualizaWinCards(projetos)
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 
-function naveline(){
+function naveLine(){
     let positionString = String(parseInt(window.scrollY) + 270)
     naveIcon.style.top = positionString +"px"
 }
@@ -22,48 +22,52 @@ function naveline(){
 
 // ----------------DIGITAR-MENSAGEM-HOME-----------------
 function digitarH1(){
-
-    digitarInner("Olá meu nome é Augusto", 0.3, 4.3)
-    digitarInner("Sou Desenvolvedor Front-End", 7, 10)
-    digitarInner("e Web Designer :)", 13, 15)
-    setTimeout(()=>{
-        let stringArray = "Olá meu nome é Augusto".split("")
-        stringArray.forEach((letter, i)=>{
-            setTimeout(()=>{
-                apresentH1.innerHTML += letter
-            }, 100* i)
+    apresentH1.innerHTML = ""
+    digitarInner("Olá meu nome é Augusto")
+    .then(()=>{
+        digitarInner("Sou Desenvolvedor Front-End").then(()=>{
+            digitarInner("e Web Designer :)").then(()=>{
+                let stringArray = "Olá meu nome é Augusto".split("")
+                stringArray.forEach((letter, i)=>{
+                    setTimeout(()=>{
+                        apresentH1.innerHTML += letter
+                    }, 100* i)
+                })
+            })
         })
-    }, 18000)
-    
+    })
 }
 
-function digitarInner(string, time1, time2){
-    let stringArray = string.split("")
-    setTimeout(()=>{
-        apresentH1.innerHTML = ""
-    
-        stringArray.forEach((letter, i)=>{
-            setTimeout(()=>{
-                apresentH1.innerHTML += letter
-            }, 100* i)
-        })
-    }, time1*1000)
-    setTimeout(()=>{
-        stringArray.forEach((letter, i)=>{
-            setTimeout(()=>{
-                stringArray.pop()
-                let ArrayConvert = stringArray.toString().replace(/,/g,"")
-                apresentH1.innerHTML = ArrayConvert
-            }, 100* i)
-        })
-    }, time2*1000)
+function digitarInner(string){
+    return new Promise((res)=>{
+        let stringArray = string.split("")
+        setTimeout(()=>{
+            apresentH1.innerHTML = ""
+        
+            stringArray.forEach((letter, i)=>{
+                setTimeout(()=>{
+                    apresentH1.innerHTML += letter
+                }, 100* i)
+            })
+        }, 1000)
+        setTimeout(()=>{
+            stringArray.forEach((letter, i)=>{
+                setTimeout(()=>{
+                    stringArray.pop()
+                    let ArrayConvert = stringArray.toString().replace(/,/g,"")
+                    apresentH1.innerHTML = ArrayConvert
+                }, 100* i)
+            })
+        }, 4500)
+        setTimeout(res, 7100)
+    })
     
 }
 // ----------------------------------------------------
 
-// ----------------ADICIONAR-PROJETOS-PORTIFOLIO-----------------
+// ----------------ADICIONAR-PROJETOS-PORTFOLIO-----------------
 const containerPort = document.querySelector(".container_portfolio")
-function criarprojetos(obj){
+function criarProjetos(obj){
     let card = document.createElement("div")
     card.id = obj.id
     card.classList.add(obj.classColor, "cards_sites")
@@ -71,11 +75,11 @@ function criarprojetos(obj){
 
     card.addEventListener("click", (ev)=>{
         if(!document.querySelector(".poop_project")){
-            criarpoopInfo(projetos[ev.target.parentNode.id])
+            criarPoopInfo(projetos[ev.target.parentNode.id])
         }
         else{
             document.querySelector(".poop_project").remove()        
-            criarpoopInfo(projetos[ev.target.parentNode.id])
+            criarPoopInfo(projetos[ev.target.parentNode.id])
         }
     })
     let img = document.createElement("img")
@@ -84,13 +88,13 @@ function criarprojetos(obj){
 }
 function addProjectsWindow(array){
     array.forEach((el)=>{
-        criarprojetos(el)
+        criarProjetos(el)
     })
 }
 // ----------------------------------------------------
 
 // ----------------CRIAR-POOP-INFOS-PROJECTS-----------------
-function criarpoopInfo(obj){
+function criarPoopInfo(obj){
 
     let poop_project = document.createElement("div")
     poop_project.classList.add("poop_project")
@@ -129,7 +133,7 @@ function criarpoopInfo(obj){
 
     a.addEventListener("click", ()=>{
         if(obj.video.activated){
-            abrirvideoRep(obj)
+            abrirVideoRep(obj)
         }else{
             a.href = obj.url
             a.target = "_blank"
@@ -156,7 +160,7 @@ function criarpoopInfo(obj){
 // ----------------------------------------------------
 
 // ----------------CRIAR-DIV-IFRAME-----------------
-function abrirvideoRep(obj){
+function abrirVideoRep(obj){
 
     document.querySelector(".poop_project").remove()
     let video_port = document.createElement("div")
@@ -171,6 +175,11 @@ function abrirvideoRep(obj){
         video_port.remove()
     })
 }
+
+// ----------------------------------------------------
+
+
+// ----------------FILTRO PROJECTS-----------------
 function limparCards(){
     let cards = document.querySelectorAll(".cards_sites")
     cards.forEach((card)=>{
@@ -182,22 +191,21 @@ function atualizaWinCards(array){
     addProjectsWindow(array)
 }
 function filterTodos(el){
-    ckecksonic(el)
+    checkSonic(el)
     atualizaWinCards(projetos)
 }
-function filterappJs(el, elementFilter){
-    ckecksonic(el)
+function filterProjects(el, elementFilter){
+    checkSonic(el)
     limparCards()
-    let func = function(el){
+    let arrayNew = projetos.filter(el=>{
         return el.class == elementFilter
-    }
-    let arrayNew = projetos.filter(func)
+    })
     addProjectsWindow(arrayNew)
 }
 // ----------------------------------------------------
 
-// -----------------CHECKED-SONIC----------------------
-function ckecksonic(el){
+// -----------------CHECK-SONIC----------------------
+function checkSonic(el){
     let butfil = document.querySelectorAll(".butfil")
     butfil.forEach((el)=>{
         el.classList.remove("tremer")
@@ -252,5 +260,16 @@ function openInfos_tech(tech_id){
 
 }
 
-
+function visibilityProjects(el){
+    let containerProjects = document.querySelector(".container_portfolio")
+    if(containerProjects.classList.contains("visibilityHiddenCont")){
+        containerProjects.classList.remove("visibilityHiddenCont")
+        el.querySelector(".visibility_display").innerHTML = "Ver menos"
+        el.querySelector(".icon_indication").classList.add("rotateArrowUp")
+    }else{
+        containerProjects.classList.add("visibilityHiddenCont")
+        el.querySelector(".visibility_display").innerHTML = "Ver mais"
+        el.querySelector(".icon_indication").classList.remove("rotateArrowUp")
+    }
+}
 

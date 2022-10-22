@@ -1,12 +1,13 @@
 const PagesClone = "Pages Clone"
-const AppJs = "App Js"
+const Aplicativos = "Aplicativos"
 const LadingPages = "Lading Pages"
+const Ecommerce = "Ecommerce"
 const projetos = [
     {
         id: 0,
         name: "E-Commerce Livros / Js Puro",
         name_img: "E-Commerce Livros",
-        // class: AppJs,  ---- NÃO POSSUI CLASSE DETERMINADA
+        class: Ecommerce,
         classColor: "bordercommerce",
         url: undefined,
         techs: ["html5", "css3", "javascript"],
@@ -20,7 +21,7 @@ const projetos = [
         id: 1,
         name: "E-Commerce Livros / Node - Express / EJS",
         name_img: "e_commerce Node Ejs",
-        // class: AppJs,  ---- NÃO POSSUI CLASSE DETERMINADA
+        class: Ecommerce,
         classColor: "bordercommerce",
         url: undefined,
         techs: ["html5", "css3", "javascript", "nodejs", "bootstrap"],
@@ -34,7 +35,7 @@ const projetos = [
         id: 2,
         name: "Ficha automática",
         name_img: "Ficha automaticaRPG",
-        class: AppJs,
+        class: Aplicativos,
         classColor: "borderficha",
         url: "https://resplendent-clafoutis-4a563c.netlify.app",
         techs: ["html5", "css3", "javascript", "firebase"],
@@ -76,7 +77,7 @@ const projetos = [
         id: 5,
         name: "Gerador de Senhas",
         name_img: "Gerador de Senhas",
-        class: AppJs,
+        class: Aplicativos,
         classColor: "borderGerad",
         url: "https://stirring-biscochitos-33f31d.netlify.app",
         techs: ["html5", "css3", "javascript"],
@@ -89,7 +90,7 @@ const projetos = [
         id: 6,
         name: "Calculadora Simples",
         name_img: "Calculadora Simples",
-        class: AppJs,
+        class: Aplicativos,
         classColor: "borderIMob",
         url: "https://visionary-torrone-648cb5.netlify.app",
         techs: ["html5", "css3", "javascript"],
@@ -115,7 +116,7 @@ const projetos = [
         id: 8,
         name: "Jogo da Velha",
         name_img: "Jogo da Velha",
-        class: AppJs,
+        class: Aplicativos,
         classColor: "borderVelh",
         url: "https://keen-baklava-394a7c.netlify.app",
         techs: ["html5", "css3", "javascript"],
@@ -128,7 +129,7 @@ const projetos = [
         id: 9,
         name: "Quiz Interativo",
         name_img: "Quiz Interativo",
-        class: AppJs,
+        class: Aplicativos,
         classColor: "bordercommerce",
         url: "https://phenomenal-fudge-4fed79.netlify.app",
         techs: ["html5", "css3", "javascript"],

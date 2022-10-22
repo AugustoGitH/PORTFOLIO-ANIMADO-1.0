@@ -43,6 +43,10 @@ body{
     position: relative;
     
 }
+
+
+
+
 /* ---------------------------------EXTRACONTAINER--------------------------------- */
 .lineNav{
     background-color: var(--backgroundYellow);
@@ -244,6 +248,7 @@ body{
     align-items: center;
     display: flex;
     flex-direction: column;
+    text-align: center;
     justify-content: center;
     margin: 0.7rem;
     padding: 8px;
@@ -379,7 +384,7 @@ body{
 .mario{
     animation: movimentation 0.4s ease-out infinite;
     position: absolute;
-    right: 29px;
+    right: 23px;
     top: -66px;
     transform: rotateY(360deg);
     width: 40px;
@@ -593,25 +598,65 @@ body{
     100%{transform: rotate(360deg);}
 }
 .butfil:nth-child(1){
-    background-color: #FFC600;
+    background-color: #f7cb2d;
     box-shadow: var(--box-shadow-botao) #b38d02;
 }.butfil:nth-child(2){
-    background-color: #E900FF;
-    box-shadow: var(--box-shadow-botao) #8a0396;
+    background-color: #ff2247;
+    box-shadow: var(--box-shadow-botao) #9a0230;
 }.butfil:nth-child(3){
-    background-color: #5800FF;
-    box-shadow: var(--box-shadow-botao) #4003b2;
+    background-color: #1ca2fb;
+    box-shadow: var(--box-shadow-botao) #5c25c3;
 }.butfil:nth-child(4){
-    background-color: #3EC70B;
+    background-color: #66f033;
     box-shadow: var(--box-shadow-botao) #2e7f11;
+}.butfil:nth-child(5){
+    background-color: #ff8018;
+    box-shadow: var(--box-shadow-botao) #904605;
 }
 .container_portfolio{
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
+
     margin-top: 5rem;
     width: 100%;
+    transition: 0.3s;
+}
+.rotateArrowUp{
+    transform: rotate(180deg);
+}
+.visibilityHiddenCont{
+    overflow-y: hidden;
+    height: 60vh;
+}
+.visibility_port{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.visibility_port div{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+    border-radius: 40px;
+}
+.visibility_port .visibility_display{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}.visibility_port .icon_indication{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #66f033;
+    margin-left: 1rem;
+    color: black;
+    font-size: 1.6rem;
 }
 .cards_sites{
     align-items: center;
@@ -681,7 +726,7 @@ body{
 @media (max-width: 600px) {
     .butfil{
         margin: 3px;
-        font-size: 0.8rem;
+        font-size: 1rem;
         
     }.Portifolio_content ul{
         margin-top: 50px;
