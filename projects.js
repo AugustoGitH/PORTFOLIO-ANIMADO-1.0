@@ -23,11 +23,11 @@ const projetos = [
         name_img: "e_commerce Node Ejs",
         class: Ecommerce,
         classColor: "bordercommerce",
-        url: undefined,
+        url: "https://e-commercenode.herokuapp.com",
         techs: ["html5", "css3", "javascript", "nodejs", "bootstrap"],
         video: {
-            activated: true,
-            url_video: 'https://www.youtube.com/embed/uzEaaq7D2HU'
+            activated: false,
+            url_video: undefined
         }
             
     },
