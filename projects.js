@@ -19,7 +19,7 @@ const projetos = [
     },
     {
         id: 1,
-        name: "E-Commerce Livros / Node - Express / EJS",
+        name: "E-Commerce Livros / nodejs / EJS",
         name_img: "e_commerce Node Ejs",
         class: Ecommerce,
         classColor: "bordercommerce",
@@ -47,6 +47,20 @@ const projetos = [
     },
     {
         id: 3,
+        name: "Ficha automática / JWT / nodejs / mongoDB / EJS",
+        name_img: "ficha automaticaRPG nodeJS",
+        class: Aplicativos,
+        classColor: "borderIMob",
+        url: "https://fichaauto.herokuapp.com",
+        techs: ["html5", "css3", "javascript", "mongodb", "nodejs"],
+        video: {
+            activated: false,
+            url_video: undefined
+        }
+            
+    },
+    {
+        id: 4,
         name: "Lading Page Barbearia",
         name_img: "Barbearia",
         class: LadingPages,
@@ -60,7 +74,21 @@ const projetos = [
 
     },
     {
-        id: 4,
+        id: 5,
+        name: "E-commerce T-shirt",
+        name_img: "tshirt",
+        class: PagesClone,
+        classColor: "borderRoup",
+        url: undefined,
+        techs: ["html5", "css3", "javascript"],
+        video: {
+            activated: false,
+            url_video: undefined
+        }
+
+    },
+    {
+        id: 6,
         name: "Clone Netflix",
         name_img: "Clone Netflix",
         class: PagesClone,
@@ -74,7 +102,7 @@ const projetos = [
 
     },
     {
-        id: 5,
+        id: 7,
         name: "Gerador de Senhas",
         name_img: "Gerador de Senhas",
         class: Aplicativos,
@@ -87,7 +115,7 @@ const projetos = [
         }
     },
     {
-        id: 6,
+        id: 8,
         name: "Calculadora Simples",
         name_img: "Calculadora Simples",
         class: Aplicativos,
@@ -100,7 +128,7 @@ const projetos = [
         }
     },
     {
-        id: 7,
+        id: 9,
         name: "Lading Page Roupas",
         name_img: "Lading Page Roupas",
         class: LadingPages,
@@ -113,7 +141,7 @@ const projetos = [
         }
     },
     {
-        id: 8,
+        id: 10,
         name: "Jogo da Velha",
         name_img: "Jogo da Velha",
         class: Aplicativos,
@@ -126,7 +154,7 @@ const projetos = [
         }
     },
     {
-        id: 9,
+        id: 11,
         name: "Quiz Interativo",
         name_img: "Quiz Interativo",
         class: Aplicativos,

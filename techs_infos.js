@@ -40,5 +40,11 @@ const tech_infos = [
         name: "Google Firebase Firestore",
         infos: "O Cloud Firestore, também conhecido como Google Firestore, é parte integrante da plataforma Google Firebase. Ele assume a forma de um servidor de banco de dados NoSQL baseado em nuvem que faz um excelente trabalho de armazenamento e sincronização de dados. De fato, aplicativos da web e móveis podem interagir diretamente com o Firestore com o uso de SDKs nativos. <br> O Firestore é um banco de dados de alto desempenho que suporta escala automática. Além disso, é muito fácil de usar e muito confiável. Os desenvolvedores podem trabalhar com o Firebase usando uma ampla variedade de tecnologias como Java, C ++, Unity, Go, SDKs Node.js., API REST e RPC.",
         link: "https://blog.back4app.com/pt/o-que-e-o-google-firestore/#:~:text=O%20Google%20Firestore%2C%20também%20conhecido,para%20armazenar%20e%20sincronizar%20dados."
+    },
+    {
+        id: "MONGODB",
+        name: "Mongo DB",
+        infos: "O MongoDB é um banco de dados orientado a documentos que possui código aberto (open source) e foi projetado para armazenar uma grande escala de dados, além de permitir que se trabalhe de forma eficiente com grandes volumes.Ele é categorizado no banco de dados NoSQL (not only SQL) pois o armazenamento e a recuperação de dados no MongoDB não são feitas no formato de tabelas.O banco de dados também fornece suporte oficial de driver para todas as linguagens populares como C, C ++, C # e .Net, Go, Java, Node.js, Perl, PHP, Python, Motor, Ruby, Scala, Swift, Mongoid. Assim, pode-se criar um aplicativo usando qualquer uma dessas linguagens.",
+        link: "https://tecnoblog.net/responde/o-que-e-e-para-que-serve-o-mongodb/"
     }
 ]
