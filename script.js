@@ -68,60 +68,101 @@ function digitarInner(string){
 // ----------------ADICIONAR-PROJETOS-PORTFOLIO-----------------
 const containerPort = document.querySelector(".container_portfolio")
 function criarProjetos(obj){
-    const containerPort = document.querySelector(".container_portfolio")
+    let card = document.createElement("div")
+    card.id = obj.id
+    card.classList.add(obj.classColor, "cards_sites")
+    containerPort.appendChild(card)
 
-    let cardEstruturaHTML = `
-        <div onclick="createPopUpInfo(this)" id="${obj.id}" class="${obj.classColor} cards_sites">
-            <img src="/Assets/Projects_Imgs/${obj.name_img}.png"
-        </div>
-    `
-    containerPort.innerHTML += cardEstruturaHTML
+    card.addEventListener("click", (ev)=>{
+        if(!document.querySelector(".pop_project")){
+            criarPopInfo(projetos[ev.target.parentNode.id])
+        }
+        else{
+            document.querySelector(".pop_project").remove()        
+            criarPopInfo(projetos[ev.target.parentNode.id])
+        }
+    })
+    let img = document.createElement("img")
+    card.appendChild(img)
+    img.src = "/Assets/Projects_Imgs/"+ obj.name_img + ".png"
 }
 function addProjectsWindow(array){
     array.forEach((el)=>{
         criarProjetos(el)
     })
-    visibility_button()
+    verify_buttonVisibility()
 }
 // ----------------------------------------------------
-function fecharPopUp(){
-    document.querySelector(".pop_project").style.transform = "translate(-2000px)"
-}
+
 // ----------------CRIAR-POP-INFOS-PROJECTS-----------------
 function criarPopInfo(obj){
 
-    if(document.querySelector(".pop_project")) document.querySelector(".pop_project").remove()
+    let pop_project = document.createElement("div")
+    pop_project.classList.add("pop_project")
+    document.body.appendChild(pop_project)
+
+    let pop_content = document.createElement("div")
+    pop_content.classList.add("pop_proj-content")
+    pop_project.appendChild(pop_content)
+
+    let fecha_pop = document.createElement("button")
+    fecha_pop.classList.add("fecha_pop")
+    pop_content.appendChild(fecha_pop)
+
+    let iconArrow = document.createElement("i")
+    iconArrow.classList.add("bx", "bx-right-arrow-alt")
+    fecha_pop.appendChild(iconArrow)
+
+    fecha_pop.addEventListener("click", ()=>{
+        document.querySelector(".pop_project").style.transform = "translate(2000px)"
+    })
+
+    let article = document.createElement("article")
+    pop_content.appendChild(article)
+
+    let img = document.createElement("img")
+    pop_content.appendChild(img)
+
+    let h1 = document.createElement("h1")
+    article.appendChild(h1)
+
+    let a = document.createElement("a")
+    article.appendChild(a)
 
     obj.video.activated ? a.innerHTML = "Assistir" : a.innerHTML = "Visitar"
-    let returnTechs = ()=>{
-        let techsHTML = ""
-        obj.techs.forEach(tech=> techsHTML += `<i class='bx bxl-${tech}'></i>`)
-        return techsHTML
-    }
 
-    let estruturaPopUpHTML = `
-        <div class="pop_project">
-            <div class="pop_proj-content">
-                <button onclick="fecharPopUp()" class="fecha_pop"><i class="bx bx-right-arrow-alt"></i></button>
-                <article>
-                    <h1>${obj.name}</h1>
-                    <a onclick="abrirVideoRep('${popUp.id}')" target="_blank" ${!obj.video.activated ? `href="${obj.url}"` : ""}>${obj.video.activated ? "Assistir" : "Visitar"}</a>
-                    <uL>
-                    ${returnTechs()}
-                    </ul>
-                </article>
-                <img src="/Assets/Persons_Gif/panda.gif">
-            </div>
-        </div>
-    `
-    document.body.innerHTML += estruturaPopUpHTML
-    setTimeout(()=> document.querySelector(".pop_project").style.transform = "translate(0px)", 100)
+
+    a.addEventListener("click", ()=>{
+        if(obj.video.activated){
+            abrirVideoRep(obj)
+        }else{
+            a.href = obj.url
+            a.target = "_blank"
+            document.querySelector(".pop_project").remove()
+        }
+    })
+
+
+    let ul = document.createElement("ul")
+    article.appendChild(ul)
+
+    obj.techs.forEach((tech)=>{
+        ul.innerHTML += "<i class='bx bxl-"+tech+"'></i>"
+    })
+
+    h1.innerHTML = obj.name
+    img.src = "/Assets/Persons_Gif/panda.gif"
+
+    setTimeout(()=>{
+        document.querySelector(".pop_project").style.transform = "translate(0px)"
+    }, 100)
     
 }
 // ----------------------------------------------------
 
 // ----------------CRIAR-DIV-IFRAME-----------------
 function abrirVideoRep(obj){
+
     document.querySelector(".pop_project").remove()
     let video_port = document.createElement("div")
     video_port.classList.add("video_port")
@@ -131,7 +172,9 @@ function abrirVideoRep(obj){
     buttonSair.classList.add("buttonSairIf")
     buttonSair.innerHTML = "Sair"
     video_port.appendChild(buttonSair)
-    buttonSair.addEventListener("click", ()=> video_port.remove())
+    buttonSair.addEventListener("click", ()=>{
+        video_port.remove()
+    })
 }
 
 // ----------------------------------------------------
@@ -140,7 +183,9 @@ function abrirVideoRep(obj){
 // ----------------FILTRO PROJECTS-----------------
 function limparCards(){
     let cards = document.querySelectorAll(".cards_sites")
-    cards.forEach((card)=> card.remove())
+    cards.forEach((card)=>{
+        card.remove()
+    })
 }
 function atualizaWinCards(array){
     limparCards()
@@ -153,7 +198,9 @@ function filterTodos(el){
 function filterProjects(el, elementFilter){
     checkSonic(el)
     limparCards()
-    let arrayNew = projetos.filter(el=> el.class == elementFilter)
+    let arrayNew = projetos.filter(el=>{
+        return el.class == elementFilter
+    })
     addProjectsWindow(arrayNew)
 }
 // ----------------------------------------------------
@@ -161,32 +208,15 @@ function filterProjects(el, elementFilter){
 // -----------------CHECK-SONIC----------------------
 function checkSonic(el){
     let butfil = document.querySelectorAll(".butfil")
-    butfil.forEach((el)=> el.classList.remove("tremer"))
+    butfil.forEach((el)=>{
+        el.classList.remove("tremer")
+    })
     el.classList.add("tremer")
 }
 
 
 // -----------------INFOS-Techs----------------------
-function visibility_button(){
-    let visibility_port = document.querySelector(".visibility_port")
 
-    if(visibility_port){
-        visibility_port.remove()
-    }
-
-    let portfolio_content = document.querySelector(".Portifolio_content")
-    let projects = document.querySelectorAll(".cards_sites")
-
-    let buttonEstruturaHTML = `
-    <span class="visibility_port">
-        <div onclick="visibilityProjects(this)">
-            <p class="visibility_display">Ver mais</p>
-            <i class='bx bx-down-arrow-alt icon_indication' ></i>
-        </div>
-    </span>
-    `
-    if(projects.length > 4) portfolio_content.innerHTML += buttonEstruturaHTML
-}
 function openInfos_tech(tech_id){
     let containerInfos = document.createElement("div")
     containerInfos.classList.add("containerInfos")
@@ -241,5 +271,18 @@ function visibilityProjects(el){
         containerProjects.classList.add("visibilityHiddenCont")
         el.querySelector(".visibility_display").innerHTML = "Ver mais"
         el.querySelector(".icon_indication").classList.remove("rotateArrowUp")
+    }
+}
+
+function verify_buttonVisibility(){
+    let cards = document.querySelectorAll(".cards_sites")
+    let verMaisButton = document.querySelector(".visibility_port")
+    let containerPort = document.querySelector(".container_portfolio")
+    if(cards.length < 4){
+        verMaisButton.style.display = "none"
+        containerPort.classList.remove("visibilityHiddenCont")
+    }else{
+        verMaisButton.style.display = "flex"
+        containerPort.classList.add("visibilityHiddenCont")
     }
 }

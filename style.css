@@ -633,6 +633,7 @@ body{
 .rotateArrowUp{
     transform: rotate(180deg);
 }
+
 .visibilityHiddenCont{
     overflow-y: hidden;
     height: 60vh;
