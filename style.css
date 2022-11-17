@@ -36,6 +36,11 @@ html{scroll-behavior: smooth;}
 
     --box-shadow-container-medio: 5px 5px;
 }
+
+@font-face {
+    font-family: displayPixel;
+    src: url(/Assets/fonts/DisplayOTF.otf);
+}
 body{
     background-color: var(--backgroundBodyPad);
     display: flex;
@@ -299,7 +304,9 @@ body{
     box-shadow: none;
     transform: translate(3px, 3px);
 }
-
+.translateY{
+    transform: translateY(-100vh);
+}
 .containerInfos{
     position: fixed;
     top: 0;
@@ -313,6 +320,7 @@ body{
     align-items: flex-start;
     justify-content: start;
     padding: 10% 5%;
+    transition: 0.3s;
 }
 .containerInfos h2{
     font-size: 2rem;
@@ -764,8 +772,17 @@ body{
     color: black;
     font-weight: bold;
 }
+
 /* ---------------------------------POPINFOS--------------------------------- */
 
+.display_quantityProjetos{
+    margin-top: 2rem;
+    font-size: 1.7rem;
+    font-family: displayPixel, Arial;
+}.display_quantityProjetos span{
+    font-family: displayPixel, Arial;
+    color: yellow;
+}
 .pop_project{
     position: fixed;
     right: 0;
@@ -860,6 +877,9 @@ body{
     
 } 
 @media (max-width: 490px){
+    .display_quantityProjetos{
+        font-size: 1rem;
+    }
     .pop_project{
         max-width: 100vh;
        margin-left: 2rem;
