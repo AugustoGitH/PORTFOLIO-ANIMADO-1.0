@@ -1,11 +1,13 @@
 const naveIcon = document.querySelector(".fogueteGuia")
 const liner = document.querySelector(".lineNav")
-const presentationH1 = document.querySelector("#apresentH1")
+const apresentH1 = document.querySelector("#apresentH1")
 
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    document.addEventListener("scroll", naveLine)
+    document.addEventListener("scroll", ()=>{
+        naveLine()
+    })
     digitarH1()
     atualizaWinCards(projetos)
 })
@@ -18,32 +20,42 @@ function naveLine(){
 }
 
 
+// ----------------DIGITAR-MENSAGEM-HOME-----------------
 function digitarH1(){
-    presentationH1.innerHTML = ""
+    apresentH1.innerHTML = ""
     digitarInner("Olá meu nome é Augusto")
     .then(()=>{
         digitarInner("Sou Desenvolvedor Front-End").then(()=>{
             digitarInner("e Web Designer :)").then(()=>{
                 let stringArray = "Olá meu nome é Augusto".split("")
-                stringArray.forEach((letter, i)=> setTimeout(()=> presentationH1.innerHTML += letter, 100* i))
+                stringArray.forEach((letter, i)=>{
+                    setTimeout(()=>{
+                        apresentH1.innerHTML += letter
+                    }, 100* i)
+                })
             })
         })
     })
 }
 
 function digitarInner(string){
-    return new Promise(res=>{
+    return new Promise((res)=>{
         let stringArray = string.split("")
         setTimeout(()=>{
-            presentationH1.innerHTML = ""
-            stringArray.forEach((letter, i)=> setTimeout(()=> presentationH1.innerHTML += letter, 100* i))
+            apresentH1.innerHTML = ""
+        
+            stringArray.forEach((letter, i)=>{
+                setTimeout(()=>{
+                    apresentH1.innerHTML += letter
+                }, 100* i)
+            })
         }, 1000)
         setTimeout(()=>{
             stringArray.forEach((letter, i)=>{
                 setTimeout(()=>{
                     stringArray.pop()
                     let ArrayConvert = stringArray.toString().replace(/,/g,"")
-                    presentationH1.innerHTML = ArrayConvert
+                    apresentH1.innerHTML = ArrayConvert
                 }, 100* i)
             })
         }, 4500)
@@ -51,158 +63,203 @@ function digitarInner(string){
     })
     
 }
+// ----------------------------------------------------
 
-
+// ----------------ADICIONAR-PROJETOS-PORTFOLIO-----------------
+const containerPort = document.querySelector(".container_portfolio")
 function criarProjetos(obj){
-    const containerPort = document.querySelector(".container_portfolio")
+    let card = document.createElement("div")
+    card.id = obj.id
+    card.classList.add(obj.classColor, "cards_sites")
+    containerPort.appendChild(card)
 
-    let cardEstruturaHTML = `
-        <div onclick="createPopUpInfo(this)" id="${obj.id}" class="${obj.classColor} cards_sites">
-            <img src="/Assets/Projects_Imgs/${obj.name_img}.png"
-        </div>
-    `
-    containerPort.innerHTML += cardEstruturaHTML
-}
-
-function addProjectsWindow(array){ 
-    array.forEach(el=> criarProjetos(el)) 
-    visibility_button()
-}
-
-
-function createPopUpInfo(popUp){
-    if(document.querySelector(".pop_project")) document.querySelector(".pop_project").remove()
-    let obj = projetos[popUp.id]
-
-    let returnTechs = ()=>{
-        let techsHTML = ""
-        obj.techs.forEach(tech=> techsHTML += `<i class='bx bxl-${tech}'></i>`)
-        return techsHTML
-    }
-
-    let estruturaPopUpHTML = `
-        <div class="pop_project">
-            <div class="pop_proj-content">
-                <button onclick="Container.back('translate', '.pop_project', false)" class="fecha_pop"><i class="bx bx-right-arrow-alt"></i></button>
-                <article>
-                    <h1>${obj.name}</h1>
-                    <a onclick="abrirVideoRep('${popUp.id}')" target="_blank" ${!obj.video.activated ? `href="${obj.url}"` : ""}>${obj.video.activated ? "Assistir" : "Visitar"}</a>
-                    <uL>
-                    ${returnTechs()}
-                    </ul>
-                </article>
-                <img src="/Assets/Persons_Gif/panda.gif">
-            </div>
-        </div>
-    `
-    document.body.innerHTML += estruturaPopUpHTML
-    setTimeout(()=> document.querySelector(".pop_project").style.transform = "translate(0px)", 100)
-    
-}
-
-const Container = {
-    
-    back(method, container, all){
-        if(method === "translate" && all){
-            document.querySelectorAll(container).forEach(content=>{
-                content.style.transform = "translate(2000px)"
-                setTimeout(()=> content.remove(), 2000)
-            })
+    card.addEventListener("click", (ev)=>{
+        if(!document.querySelector(".pop_project")){
+            criarPopInfo(projetos[ev.target.parentNode.id])
         }
-        if(method === "default" && all) document.querySelectorAll(container).forEach(content=> content.remove())
-        if(method === "translate" && !all) document.querySelector(container).style.transform = "translate(2000px)"
-        if(method === "default" && !all) document.querySelector(container).remove()
-    }
+        else{
+            document.querySelector(".pop_project").remove()        
+            criarPopInfo(projetos[ev.target.parentNode.id])
+        }
+    })
+    let img = document.createElement("img")
+    card.appendChild(img)
+    img.src = "/Assets/Projects_Imgs/"+ obj.name_img + ".png"
 }
+function addProjectsWindow(array){
+    array.forEach((el)=>{
+        criarProjetos(el)
+    })
+}
+// ----------------------------------------------------
+
+// ----------------CRIAR-POP-INFOS-PROJECTS-----------------
+function criarPopInfo(obj){
+
+    let pop_project = document.createElement("div")
+    pop_project.classList.add("pop_project")
+    document.body.appendChild(pop_project)
+
+    let pop_content = document.createElement("div")
+    pop_content.classList.add("pop_proj-content")
+    pop_project.appendChild(pop_content)
+
+    let fecha_pop = document.createElement("button")
+    fecha_pop.classList.add("fecha_pop")
+    pop_content.appendChild(fecha_pop)
+
+    let iconArrow = document.createElement("i")
+    iconArrow.classList.add("bx", "bx-right-arrow-alt")
+    fecha_pop.appendChild(iconArrow)
+
+    fecha_pop.addEventListener("click", ()=>{
+        document.querySelector(".pop_project").style.transform = "translate(2000px)"
+    })
+
+    let article = document.createElement("article")
+    pop_content.appendChild(article)
+
+    let img = document.createElement("img")
+    pop_content.appendChild(img)
+
+    let h1 = document.createElement("h1")
+    article.appendChild(h1)
+
+    let a = document.createElement("a")
+    article.appendChild(a)
+
+    obj.video.activated ? a.innerHTML = "Assistir" : a.innerHTML = "Visitar"
 
 
+    a.addEventListener("click", ()=>{
+        if(obj.video.activated){
+            abrirVideoRep(obj)
+        }else{
+            a.href = obj.url
+            a.target = "_blank"
+            document.querySelector(".pop_project").remove()
+        }
+    })
 
 
-function abrirVideoRep(id){
-    let obj = projetos[id]
-    if(!obj.video.activated) return false
+    let ul = document.createElement("ul")
+    article.appendChild(ul)
+
+    obj.techs.forEach((tech)=>{
+        ul.innerHTML += "<i class='bx bxl-"+tech+"'></i>"
+    })
+
+    h1.innerHTML = obj.name
+    img.src = "/Assets/Persons_Gif/panda.gif"
+
+    setTimeout(()=>{
+        document.querySelector(".pop_project").style.transform = "translate(0px)"
+    }, 100)
     
-    console.log(obj.video.url_video )
-    let estruturaVideoHTML = `
-    <div class="video_port">
-        <iframe id="iframe" src=${obj.video.url_video } title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p onclick="Container.back('default', '.video_port', false)" class="buttonSairIf">Sair</p>
-    </div>
-    `
-    document.body.innerHTML += estruturaVideoHTML
+}
+// ----------------------------------------------------
+
+// ----------------CRIAR-DIV-IFRAME-----------------
+function abrirVideoRep(obj){
+
+    document.querySelector(".pop_project").remove()
+    let video_port = document.createElement("div")
+    video_port.classList.add("video_port")
+    document.body.appendChild(video_port)
+    video_port.innerHTML = `<iframe id="iframe" src=${obj.video.url_video } title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    let buttonSair = document.createElement("p")
+    buttonSair.classList.add("buttonSairIf")
+    buttonSair.innerHTML = "Sair"
+    video_port.appendChild(buttonSair)
+    buttonSair.addEventListener("click", ()=>{
+        video_port.remove()
+    })
 }
 
+// ----------------------------------------------------
 
 
-
+// ----------------FILTRO PROJECTS-----------------
+function limparCards(){
+    let cards = document.querySelectorAll(".cards_sites")
+    cards.forEach((card)=>{
+        card.remove()
+    })
+}
 function atualizaWinCards(array){
-    Container.back("default", ".cards_sites", true)
+    limparCards()
     addProjectsWindow(array)
 }
-
 function filterTodos(el){
     checkSonic(el)
     atualizaWinCards(projetos)
 }
 function filterProjects(el, elementFilter){
     checkSonic(el)
-    Container.back("default", ".cards_sites", true)
-    let arrayNew = projetos.filter(el=> el.class == elementFilter)
+    limparCards()
+    let arrayNew = projetos.filter(el=>{
+        return el.class == elementFilter
+    })
     addProjectsWindow(arrayNew)
 }
+// ----------------------------------------------------
 
-
+// -----------------CHECK-SONIC----------------------
 function checkSonic(el){
-    let buttonFilter = document.querySelectorAll(".butfil")
-    buttonFilter.forEach(el=> el.classList.remove("tremer"))
+    let butfil = document.querySelectorAll(".butfil")
+    butfil.forEach((el)=>{
+        el.classList.remove("tremer")
+    })
     el.classList.add("tremer")
 }
 
 
-
+// -----------------INFOS-Techs----------------------
 
 function openInfos_tech(tech_id){
+    let containerInfos = document.createElement("div")
+    containerInfos.classList.add("containerInfos")
+    document.body.appendChild(containerInfos)
 
-    let inf_tech = tech_infos.filter(obj_tech=> obj_tech.id.toLowerCase() === tech_id.toLowerCase())[0]
+    document.body.classList.add("blockScroll")
+
+    let titleH2 = document.createElement("h2")
+    let infosP = document.createElement("p")
+
+    let article = document.createElement("article")
+
+    let button_sair = document.createElement("button")
+    button_sair.innerText = "Fechar"
+    article.appendChild(button_sair)
+
+    button_sair.addEventListener("click", ()=>{
+        document.body.removeChild(containerInfos)
+        document.body.classList.remove("blockScroll")
+    })
+
+    let inf_tech = tech_infos.filter(obj_tech=>{
+        return  obj_tech.id.toLowerCase() === tech_id.toLowerCase()
+    })
 
 
-    let estruturaPopUpTechsHTML = `
-        <div class="containerInfos">
-            <h2>Mas o'que é ${inf_tech.name}?</h2>
-            <p>${inf_tech.infos}</p>
-            <article>
-                <button onclick="Container.back('default', '.containerInfos', false)">Fechar</button>
-                <a target="_blank" href="${inf_tech.link}">Saiba mais</a>
-            </article>
-        </div>
-    
-    `
-    document.body.innerHTML += estruturaPopUpTechsHTML
+
+    let hiperlink_saibamais = document.createElement("a")
+    hiperlink_saibamais.innerText = "Saiba mais"
+    hiperlink_saibamais.href = inf_tech[0].link
+    hiperlink_saibamais.target = "_blank" 
+    article.appendChild(hiperlink_saibamais)
+
+
+    titleH2.innerText = "Mas o'que é " + inf_tech[0].name + "?"
+    infosP.innerHTML = inf_tech[0].infos
+
+    containerInfos.appendChild(titleH2)
+    containerInfos.appendChild(infosP)
+    containerInfos.appendChild(article)
 
 
 }
-function visibility_button(){
-    let visibility_port = document.querySelector(".visibility_port")
-    
-    if(visibility_port){
-        visibility_port.remove()
-    }
-    
-    let portfolio_content = document.querySelector(".Portifolio_content")
-    let projects = document.querySelectorAll(".cards_sites")
 
-    let buttonEstruturaHTML = `
-    <span class="visibility_port">
-        <div onclick="visibilityProjects(this)">
-            <p class="visibility_display">Ver mais</p>
-            <i class='bx bx-down-arrow-alt icon_indication' ></i>
-        </div>
-    </span>
-    `
-    if(projects.length > 4) portfolio_content.innerHTML += buttonEstruturaHTML
-    
-
-}
 function visibilityProjects(el){
     let containerProjects = document.querySelector(".container_portfolio")
     if(containerProjects.classList.contains("visibilityHiddenCont")){
@@ -215,4 +272,3 @@ function visibilityProjects(el){
         el.querySelector(".icon_indication").classList.remove("rotateArrowUp")
     }
 }
-
