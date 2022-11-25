@@ -711,7 +711,7 @@ body{
     width: 100%;
 }
 .translateY-box{
-    transform: translateY(2000px);
+    transform: translateX(-2000px);
     opacity: 0
 }
 .translateX-box{
