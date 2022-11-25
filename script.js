@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
     digitarH1()
     atualizaWinCards(projetos)
+    techGitTotal()
 })
 
 
@@ -162,11 +163,30 @@ function handleRepositoryGit(id){
     return new Promise((resolve, reject)=>{
         handlePerfilGit("https://api.github.com/users/AugustoGitH/repos").then(json=>{
             let repSelect = json.filter(rep=> rep.id === id)[0]
-            console.log(repSelect)
             resolve({
                 link: repSelect.svn_url
             })
         })
+    })
+}
+
+function techGitTotal(){
+    handlePerfilGit("https://api.github.com/users/AugustoGitH/repos").then(json=>{
+        let apis_techs = json.map(rep=> rep.languages_url)
+        let mapTechsReps = (cb)=>{
+            let techsReps = []
+                apis_techs.forEach(tech_url => {
+                    fetch(tech_url).then(tech=>{
+                        tech.json().then(json=>{
+                            techsReps.push(json)
+                        })
+                    })
+                })
+            cb(techsReps)
+        }
+        mapTechsReps((techs=>{
+            console.log(techs)
+        }))
     })
 }
 
@@ -289,7 +309,7 @@ function verify_buttonVisibility(){
 function handlePerfilGit(api){
     return new Promise((resolve, reject)=>{
         fetch(api).then(res=>{
-            res.json().then(resolve(json))
+            res.json().then(json=>resolve(json))
         }).catch(err=> reject(err))
     })
 }
