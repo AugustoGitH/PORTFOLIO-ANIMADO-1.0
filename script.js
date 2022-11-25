@@ -84,7 +84,7 @@ function addProjectsWindow(array){
     document.querySelectorAll(".cards_sites").forEach((card, index)=>{
         setTimeout(()=> card.classList.remove("translateY-box"), (index + 1)*200)
     })
-    verify_buttonVisibility()
+    setTimeout(()=> verify_buttonVisibility(), 3000)
 }
 
 function criarPopInfo(obj){
@@ -289,11 +289,7 @@ function verify_buttonVisibility(){
 function handlePerfilGit(api){
     return new Promise((resolve, reject)=>{
         fetch(api).then(res=>{
-            res.json().then(json=>{
-                resolve(json)
-            })
-        }).catch(err=>{
-            reject(err)
-        })
+            res.json().then(resolve(json))
+        }).catch(err=> reject(err))
     })
 }
