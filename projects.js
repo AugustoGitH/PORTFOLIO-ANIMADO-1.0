@@ -14,12 +14,13 @@ const projetos = [
         video: {
             activated: true,
             url_video: 'https://www.youtube.com/embed/0eJr3VuCPM0'
-        }
+        },
+        id_github: 535355348
             
     },
     {
         id: 1,
-        name: "E-Commerce Livros / nodejs / EJS",
+        name: "E-Commerce Livros / Nodejs ",
         name_img: "e_commerce Node Ejs",
         class: Ecommerce,
         classColor: "bordercommerce",
@@ -28,12 +29,13 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: 543840580
             
     },
     {
         id: 2,
-        name: "Ficha automática",
+        name: "Ficha automática / FireBase",
         name_img: "Ficha automaticaRPG",
         class: Aplicativos,
         classColor: "borderficha",
@@ -42,12 +44,13 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: 543840580
             
     },
     {
         id: 3,
-        name: "Ficha automática / JWT / nodejs / mongoDB / EJS",
+        name: "Ficha automática / MongoDB ",
         name_img: "ficha automaticaRPG nodeJS",
         class: Aplicativos,
         classColor: "borderIMob",
@@ -56,7 +59,8 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: 565903793
             
     },
     {
@@ -70,7 +74,8 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: false
 
     },
     {
@@ -84,8 +89,8 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
-
+        },
+        id_github: 496773693
     },
     {
         id: 6,
@@ -98,7 +103,8 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: 496773693
 
     },
     {
@@ -112,7 +118,8 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: 496777585
     },
     {
         id: 8,
@@ -125,7 +132,8 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: 536360180
     },
     {
         id: 9,
@@ -138,7 +146,8 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: 496775301
     },
     {
         id: 10,
@@ -151,7 +160,8 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: 523709783
     },
     {
         id: 11,
@@ -164,7 +174,8 @@ const projetos = [
         video: {
             activated: false,
             url_video: undefined
-        }
+        },
+        id_github: 536814403
             
     },
     

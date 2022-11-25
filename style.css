@@ -93,11 +93,16 @@ body{
 }
 /* ---------------------------------SECTIONHOME--------------------------------- */
 .myHome{
-    height: 100vh;
     width: 100%;
+    padding: 13% 0;
     display: flex;
     align-items: center;
     justify-content: start;
+}
+@media (max-width: 1400px){
+    .myHome{
+        height: 100vh;
+    }
 }
 .myHome_content{
     align-items: center; 
@@ -636,7 +641,7 @@ body{
 
     margin-top: 5rem;
     width: 100%;
-    transition: 0.3s;
+    transition: all .3s;
 }
 .rotateArrowUp{
     transform: rotate(180deg);
@@ -704,6 +709,14 @@ body{
     transform: skewX(45deg);
     transition: 0.5s;
     width: 100%;
+}
+.translateY-box{
+    transform: translateY(2000px);
+    opacity: 0
+}
+.translateX-box{
+    transform: scale(0);
+    opacity: 0
 }
 .cards_sites img{width: 100%;}
 
@@ -825,7 +838,12 @@ body{
 }
 .pop_proj-content img{
     width: 120px;
-}.pop_proj-content article a{
+}
+.pop_proj-content article nav{
+    display: flex;
+    align-items: center;
+}
+.hiperlink-access{
     /* font-weight: bold; */
     letter-spacing: 1px;
     color: black;
@@ -837,6 +855,25 @@ body{
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 3px 3px rgb(224, 103, 5);
+    margin-right: 1rem;
+}
+.accessLinkButton{
+    background-color: #74c7ff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 3px 3px #0c66a2;
+    cursor: pointer;
+    transition: .2s;
+}
+.accessLinkButton i{
+    font-size: 1.6rem;
+}.accessLinkButton:hover, .hiperlink-access:hover{
+    box-shadow: none;
+    transform: translate(3px, 3px);
 }
 .pop_proj-content article ul{
     margin-top: 1rem;
@@ -888,12 +925,22 @@ body{
         left: -80px;
     }
     .pop_proj-content h1{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }.pop_proj-content article a{
-        font-size: 0.9rem;
+        font-size: 0.7rem;
+    }.pop_proj-content ul{
+        margin-top: .2rem;
+    }
+    .pop_proj-content ul i{
+        font-size: 1.7rem;
     }
     .pop_proj-content img{
         width: 90px;
+    }.accessLinkButton{
+        width: 30px;
+        height: 30px;
+    }.accessLinkButton i{
+        font-size: 1.1rem;
     }
 } */
 /* ---------------------------------SECTIONCONTATO--------------------------------- */
@@ -974,6 +1021,7 @@ body{
 }
 .form_content input:focus, textarea:focus{
     box-shadow: none;
+    outline: none;
     transform: translate(5px, 5px);
 }
 textarea{

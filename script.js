@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
     digitarH1()
     atualizaWinCards(projetos)
-    setQuantityProjects()
 })
 
 
@@ -60,16 +59,13 @@ function digitarInner(string){
     })
     
 }
-function setQuantityProjects(){
-    let displayValue = projetos.length >= 10 ? "00" + projetos.length : "000" + projetos.length
-    document.querySelector(".display_quantityProjetos").innerHTML = `PROJETOS REALIZADOS => <span>${displayValue}</span>`
-}
+
 
 function criarProjetos(obj){
     let containerPort = document.querySelector(".container_portfolio")
     let card = document.createElement("div")
     card.id = obj.id
-    card.classList.add(obj.classColor, "cards_sites")
+    card.classList.add(obj.classColor, "cards_sites", "translateY-box")
     containerPort.appendChild(card)
 
     card.addEventListener("click", ev=>{
@@ -85,6 +81,9 @@ function criarProjetos(obj){
 }
 function addProjectsWindow(array){
     array.forEach((el)=> criarProjetos(el))
+    document.querySelectorAll(".cards_sites").forEach((card, index)=>{
+        setTimeout(()=> card.classList.remove("translateY-box"), (index + 1)*200)
+    })
     verify_buttonVisibility()
 }
 
@@ -111,23 +110,38 @@ function criarPopInfo(obj){
     let article = document.createElement("article")
     pop_content.appendChild(article)
 
+
     let img = document.createElement("img")
     pop_content.appendChild(img)
 
     let h1 = document.createElement("h1")
     article.appendChild(h1)
 
-    let a = document.createElement("a")
-    article.appendChild(a)
+    let containerButtons = document.createElement("nav")
+    article.appendChild(containerButtons)
 
-    obj.video.activated ? a.innerHTML = "Assistir" : a.innerHTML = "Visitar"
+    let hiperLinkAccess = document.createElement("a")
+    hiperLinkAccess.classList.add("hiperlink-access")
+    containerButtons.appendChild(hiperLinkAccess)
+
+    let accessLinkButtonGit = document.createElement("a")
+    accessLinkButtonGit.innerHTML = "<i class='bx bx-code-alt' ></i>"
+    accessLinkButtonGit.classList.add("accessLinkButton")
+    containerButtons.appendChild(accessLinkButtonGit)
+    accessLinkButtonGit.addEventListener("click",()=>{
+        handleRepositoryGit(obj.id_github).then(rep=>{
+            location.href = rep.link
+        })
+    })
+
+    obj.video.activated ? hiperLinkAccess.innerHTML = "Assistir" : hiperLinkAccess.innerHTML = "Visitar"
 
 
-    a.addEventListener("click", ()=>{
+    hiperLinkAccess.addEventListener("click", ()=>{
         if(obj.video.activated) return abrirVideoRep(obj)
         else{
-            a.href = obj.url
-            a.target = "_blank"
+            hiperLinkAccess.href = obj.url
+            hiperLinkAccess.target = "_blank"
             editContainer.remove(".pop_project", "default")
         }
     })
@@ -144,7 +158,17 @@ function criarPopInfo(obj){
     setTimeout(()=> document.querySelector(".pop_project").style.transform = "translate(0px)", 100)
     
 }
-
+function handleRepositoryGit(id){
+    return new Promise((resolve, reject)=>{
+        handlePerfilGit("https://api.github.com/users/AugustoGitH/repos").then(json=>{
+            let repSelect = json.filter(rep=> rep.id === id)[0]
+            console.log(repSelect)
+            resolve({
+                link: repSelect.svn_url
+            })
+        })
+    })
+}
 
 function abrirVideoRep(obj){
     editContainer.remove(".pop_project", "default")
@@ -163,7 +187,10 @@ function abrirVideoRep(obj){
 
 function limparCards(){
     let cards = document.querySelectorAll(".cards_sites")
-    cards.forEach(card=> card.remove())
+    cards.forEach((card, index)=>{
+        setTimeout(()=> card.classList.add("translateX-box"), (index + 1) * 100)
+        setTimeout(()=> card.remove(), (index + 1) * 200)
+    })
 }
 function atualizaWinCards(array){
     limparCards()
@@ -257,4 +284,16 @@ function verify_buttonVisibility(){
         verMaisButton.style.display = "flex"
         containerPort.classList.add("visibilityHiddenCont")
     }
+}
+
+function handlePerfilGit(api){
+    return new Promise((resolve, reject)=>{
+        fetch(api).then(res=>{
+            res.json().then(json=>{
+                resolve(json)
+            })
+        }).catch(err=>{
+            reject(err)
+        })
+    })
 }
