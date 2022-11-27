@@ -1,5 +1,3 @@
-const apresentarH1 = document.querySelector("#apresentH1")
-
 
 document.addEventListener("DOMContentLoaded", ()=>{
     document.addEventListener("scroll", ()=>{
@@ -11,15 +9,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
 })
 
 
-
 function naveLine(){
     const naveIcon = document.querySelector(".fogueteGuia")
     let positionString = String(parseInt(window.scrollY) + 270)
     naveIcon.style.top = positionString +"px"
 }
 
-
 function digitarH1(){
+    const apresentarH1 = document.querySelector("#apresentH1")
     apresentarH1.innerHTML = ""
     digitarInner("Olá meu nome é Augusto")
     .then(()=>{
@@ -32,15 +29,8 @@ function digitarH1(){
     })
 }
 
-const editContainer = {
-    remove: (containers, effect)=>{
-        let container = document.querySelector(containers)
-        if(effect === "default") return container.remove()
-        if(effect === "translate") return container.style.transform = "translate(2000px)"
-    }
-}
-
 function digitarInner(string){
+    const apresentarH1 = document.querySelector("#apresentH1")
     return new Promise((res)=>{
         let stringArray = string.split("")
         setTimeout(()=>{
@@ -58,15 +48,26 @@ function digitarInner(string){
         }, 4500)
         setTimeout(res, 7100)
     })
-    
 }
+
+const editContainer = {
+    remove: (containers, effect)=>{
+        let container = document.querySelector(containers)
+        if(effect === "default") return container.remove()
+        if(effect === "translate") {
+            container.classList.add("translateY-left-box")
+            
+        } 
+    }
+}
+
 
 
 function criarProjetos(obj){
     let containerPort = document.querySelector(".container_portfolio")
     let card = document.createElement("div")
     card.id = obj.id
-    card.classList.add(obj.classColor, "cards_sites", "translateY-box")
+    card.classList.add(obj.classColor, "cards_sites", "translateY-right-box")
     containerPort.appendChild(card)
 
     card.addEventListener("click", ev=>{
@@ -83,7 +84,7 @@ function criarProjetos(obj){
 function addProjectsWindow(array){
     array.forEach((el)=> criarProjetos(el))
     document.querySelectorAll(".cards_sites").forEach((card, index)=>{
-        setTimeout(()=> card.classList.remove("translateY-box"), (index + 1)*200)
+        setTimeout(()=> card.classList.remove("translateY-right-box"), (index + 1)*200)
     })
     verify_buttonVisibility(array)
 }
@@ -91,7 +92,7 @@ function addProjectsWindow(array){
 function criarPopInfo(obj){
 
     let pop_project = document.createElement("div")
-    pop_project.classList.add("pop_project")
+    pop_project.classList.add("pop_project", "translateY-left-box")
     document.body.appendChild(pop_project)
 
     let pop_content = document.createElement("div")
@@ -129,11 +130,7 @@ function criarPopInfo(obj){
     accessLinkButtonGit.innerHTML = "<i class='bx bx-code-alt' ></i>"
     accessLinkButtonGit.classList.add("accessLinkButton")
     containerButtons.appendChild(accessLinkButtonGit)
-    accessLinkButtonGit.addEventListener("click",()=>{
-        handleRepositoryGit(obj.id_github).then(rep=>{
-            location.href = rep.link
-        })
-    })
+    accessLinkButtonGit.addEventListener("click", ()=> handleRepositoryGit(obj.id_github).then(rep=> location.href = rep.link))
 
     obj.video.activated ? hiperLinkAccess.innerHTML = "Assistir" : hiperLinkAccess.innerHTML = "Visitar"
 
@@ -156,39 +153,11 @@ function criarPopInfo(obj){
     h1.innerHTML = obj.name
     img.src = "/Assets/Persons_Gif/panda.gif"
 
-    setTimeout(()=> document.querySelector(".pop_project").style.transform = "translate(0px)", 100)
+    setTimeout(()=> pop_project.classList.remove("translateY-left-box"), 100)
     
 }
-function handleRepositoryGit(id){
-    return new Promise((resolve, reject)=>{
-        handlePerfilGit("https://api.github.com/users/AugustoGitH/repos").then(json=>{
-            let repSelect = json.filter(rep=> rep.id === id)[0]
-            resolve({
-                link: repSelect.svn_url
-            })
-        })
-    })
-}
 
-function techGitTotal(){
-    handlePerfilGit("https://api.github.com/users/AugustoGitH/repos").then(json=>{
-        let apis_techs = json.map(rep=> rep.languages_url)
-        let mapTechsReps = (cb)=>{
-            let techsReps = []
-                apis_techs.forEach(tech_url => {
-                    fetch(tech_url).then(tech=>{
-                        tech.json().then(json=>{
-                            techsReps.push(json)
-                        })
-                    })
-                })
-            cb(techsReps)
-        }
-        mapTechsReps((techs=>{
-            console.log(techs)
-        }))
-    })
-}
+
 
 function abrirVideoRep(obj){
     editContainer.remove(".pop_project", "default")
@@ -310,4 +279,85 @@ function handlePerfilGit(api){
             res.json().then(json=>resolve(json))
         }).catch(err=> reject(err))
     })
+}
+function handleRepositoryGit(id){
+    return new Promise((resolve, reject)=>{
+        handlePerfilGit("https://api.github.com/users/AugustoGitH/repos").then(json=>{
+            let repSelect = json.filter(rep=> rep.id === id)[0]
+            resolve({
+                link: repSelect.svn_url
+            })
+        })
+    })
+}
+
+async function techGitTotal(){
+    let techsReps = await  handlePerfilGit("https://api.github.com/users/AugustoGitH/repos").then(json => json.map(rep=> rep.languages_url))
+    let funTest = new Promise((resolve, reject)=>{
+        let techs = []
+        techsReps.forEach(async (apiRep)=>{
+            let repTech = await fetch(apiRep).then(res=> res.json().then(json=> json))
+            if(Object.keys(repTech).length > 0){
+                techs.push(repTech)
+            }
+        })
+        setTimeout(()=>resolve(techs), 2000)
+
+    })
+    funTest.then(repsTech=>{
+        let returnValuesTechs = (tech)=>{
+            return repsTech.map(repTech=> repTech[tech] === undefined ? 0 : repTech[tech])
+            .reduce((currentValue, prevValue)=> currentValue + prevValue)
+        }
+        let techsValueDec = {
+            JavaScript: returnValuesTechs("JavaScript"),
+            HTML: returnValuesTechs("HTML"),
+            CSS: returnValuesTechs("CSS"),
+            Sass: returnValuesTechs("Sass"),
+            EJS: returnValuesTechs("EJS"),
+        }
+        let convertPercent = () =>{
+            let techsValuePercent = {}
+            let valueTotal = 0
+            for(let techKey in techsValueDec){
+                valueTotal += techsValueDec[techKey]
+            }
+            for(let techKey in techsValueDec){
+                techsValuePercent[techKey] = Math.round((techsValueDec[techKey] * 100) / valueTotal)
+            }
+            return techsValuePercent
+
+        }
+        document.addEventListener("scroll", ()=>{
+            let positionContainer = document.querySelector(".estatics_techs-used").getBoundingClientRect().top - 350
+            if(positionContainer < 100 && positionContainer > -100){
+                iniciarRenderTechs(convertPercent())
+            }
+        })
+    })
+
+    
+}
+function iniciarRenderTechs(techsObj){
+    for(let tech in techsObj){
+        let containerTech = document.querySelector(`#${tech}`)
+        let legendPercent = containerTech.querySelector(".percent_legend")
+        let barProgressTech = containerTech.querySelector(".bar_percent-tech")
+
+        document.querySelector(`#${tech}-barTechs-total`).addEventListener("mouseover", ()=>{
+            document.querySelector(`#${tech}-barTechs-total`).innerHTML += `<span class="legend_tech-hover">${tech}: ${techsObj[tech]}%</span>`
+        })
+        document.querySelector(`#${tech}-barTechs-total`).addEventListener("mouseout", ()=>{
+            document.querySelector(`.legend_tech-hover`).remove()
+        })
+
+        barProgressTech.classList.remove("boll_init-tech")
+        for(let i = 0; i <= techsObj[tech]; i++){
+            setTimeout(()=>{
+                document.querySelector(`#${tech}-barTechs-total`).style.width = i + "%"
+                legendPercent.innerHTML = i + "%"
+                barProgressTech.style.width = i + "%"
+            }, 50 * i)
+        }
+    }
 }
