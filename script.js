@@ -85,7 +85,7 @@ function addProjectsWindow(array){
     document.querySelectorAll(".cards_sites").forEach((card, index)=>{
         setTimeout(()=> card.classList.remove("translateY-box"), (index + 1)*200)
     })
-    setTimeout(()=> verify_buttonVisibility(), 3000)
+    verify_buttonVisibility(array)
 }
 
 function criarPopInfo(obj){
@@ -207,9 +207,8 @@ function abrirVideoRep(obj){
 
 function limparCards(){
     let cards = document.querySelectorAll(".cards_sites")
-    cards.forEach((card, index)=>{
-        setTimeout(()=> card.classList.add("translateX-box"), (index + 1) * 100)
-        setTimeout(()=> card.remove(), (index + 1) * 200)
+    cards.forEach((card)=>{
+        card.remove()
     })
 }
 function atualizaWinCards(array){
@@ -293,11 +292,10 @@ function visibilityProjects(el){
     }
 }
 
-function verify_buttonVisibility(){
-    let cards = document.querySelectorAll(".cards_sites")
+function verify_buttonVisibility(array){
     let verMaisButton = document.querySelector(".visibility_port")
     let containerPort = document.querySelector(".container_portfolio")
-    if(cards.length < 4){
+    if(array.length < 4){
         verMaisButton.style.display = "none"
         containerPort.classList.remove("visibilityHiddenCont")
     }else{
