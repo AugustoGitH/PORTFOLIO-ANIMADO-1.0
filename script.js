@@ -297,9 +297,7 @@ async function techGitTotal(){
         let techs = []
         techsReps.forEach(async (apiRep)=>{
             let repTech = await fetch(apiRep).then(res=> res.json().then(json=> json))
-            if(Object.keys(repTech).length > 0){
-                techs.push(repTech)
-            }
+            if(Object.keys(repTech).length > 0) return techs.push(repTech)
         })
         setTimeout(()=>resolve(techs), 2000)
 
@@ -319,21 +317,20 @@ async function techGitTotal(){
         let convertPercent = () =>{
             let techsValuePercent = {}
             let valueTotal = 0
-            for(let techKey in techsValueDec){
-                valueTotal += techsValueDec[techKey]
-            }
-            for(let techKey in techsValueDec){
-                techsValuePercent[techKey] = Math.round((techsValueDec[techKey] * 100) / valueTotal)
-            }
+            for(let techKey in techsValueDec) valueTotal += techsValueDec[techKey]
+            for(let techKey in techsValueDec) techsValuePercent[techKey] = Math.round((techsValueDec[techKey] * 100) / valueTotal)
+
             return techsValuePercent
 
         }
+        let loop = true
         document.addEventListener("scroll", ()=>{
             let positionContainer = document.querySelector(".estatics_techs-used").getBoundingClientRect().top - 350
-            if(positionContainer < 50 && positionContainer > -50){
-                setTimeout(()=>{
-                    iniciarRenderTechs(convertPercent())
-                }, 1000)
+            if(positionContainer < 100 && positionContainer > -100) {
+                if(loop){
+                    setTimeout(()=> iniciarRenderTechs(convertPercent()), 1000)  
+                    loop = false
+                }
                 
             }
         })
@@ -347,12 +344,8 @@ function iniciarRenderTechs(techsObj){
         let legendPercent = containerTech.querySelector(".percent_legend")
         let barProgressTech = containerTech.querySelector(".bar_percent-tech")
 
-        document.querySelector(`#${tech}-barTechs-total`).addEventListener("mouseover", ()=>{
-            document.querySelector(`#${tech}-barTechs-total`).innerHTML += `<span class="legend_tech-hover">${tech}: ${techsObj[tech]}%</span>`
-        })
-        document.querySelector(`#${tech}-barTechs-total`).addEventListener("mouseout", ()=>{
-            document.querySelector(`.legend_tech-hover`).remove()
-        })
+        document.querySelector(`#${tech}-barTechs-total`).addEventListener("mouseover", ()=> document.querySelector(`#${tech}-barTechs-total`).innerHTML += `<span class="legend_tech-hover">${tech}: ${techsObj[tech]}%</span>`)
+        document.querySelector(`#${tech}-barTechs-total`).addEventListener("mouseout", ()=> document.querySelector(`.legend_tech-hover`).remove())
         document.querySelector(`#${tech}-barTechs-total`).style.width = techsObj[tech] + "%"
         barProgressTech.classList.remove("boll_init-tech")
         for(let i = 0; i <= techsObj[tech]; i++){
