@@ -346,10 +346,10 @@ function iniciarRenderTechs(techsObj){
 
         document.querySelector(`#${tech}-barTechs-total`).addEventListener("mouseover", ()=> document.querySelector(`#${tech}-barTechs-total`).innerHTML += `<span class="legend_tech-hover">${tech}: ${techsObj[tech]}%</span>`)
         document.querySelector(`#${tech}-barTechs-total`).addEventListener("mouseout", ()=> document.querySelector(`.legend_tech-hover`).remove())
-        document.querySelector(`#${tech}-barTechs-total`).style.width = techsObj[tech] + "%"
         barProgressTech.classList.remove("boll_init-tech")
         for(let i = 0; i <= techsObj[tech]; i++){
             setTimeout(()=>{
+                document.querySelector(`#${tech}-barTechs-total`).style.width = i + "%"
                 legendPercent.innerHTML = i + "%"
                 barProgressTech.style.width = i + "%"
             }, 50 * i)
