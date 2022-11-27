@@ -355,6 +355,5 @@ function iniciarRenderTechs(techsObj){
             }, 50 * i)
         }
     }
-    setTimeout(()=> document.querySelector(`.barTechs-total`).style.width = "70%", 400)
 
 }

@@ -579,7 +579,8 @@ body{
 
 .barTechs-total{
     margin-top: 3rem;
-    width: 0%;
+    max-width: 100%;
+    min-width: 400px;
     display: flex;
     height: 23px;
     transition: .3s;
