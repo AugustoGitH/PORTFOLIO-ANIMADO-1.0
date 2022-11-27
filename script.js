@@ -350,14 +350,15 @@ function iniciarRenderTechs(techsObj){
         document.querySelector(`#${tech}-barTechs-total`).addEventListener("mouseout", ()=>{
             document.querySelector(`.legend_tech-hover`).remove()
         })
-
+        document.querySelector(`#${tech}-barTechs-total`).style.width = techsObj[tech] + "%"
         barProgressTech.classList.remove("boll_init-tech")
         for(let i = 0; i <= techsObj[tech]; i++){
             setTimeout(()=>{
-                document.querySelector(`#${tech}-barTechs-total`).style.width = i + "%"
                 legendPercent.innerHTML = i + "%"
                 barProgressTech.style.width = i + "%"
             }, 50 * i)
         }
     }
+    setTimeout(()=> document.querySelector(`.barTechs-total`).style.width = "70%", 400)
+
 }
