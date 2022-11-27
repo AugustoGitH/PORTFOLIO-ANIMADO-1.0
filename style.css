@@ -617,6 +617,9 @@ body{
     .Tecnologias{padding: 0vw 0 30vw 0;}
 }
 @media (max-width: 500px){ 
+    .estatics_techs-used li .percent_legend{
+        right: -2rem;
+    }
     .estatics_techs-used h1{
         font-size: 1.4rem;
     }
