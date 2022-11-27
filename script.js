@@ -331,7 +331,10 @@ async function techGitTotal(){
         document.addEventListener("scroll", ()=>{
             let positionContainer = document.querySelector(".estatics_techs-used").getBoundingClientRect().top - 350
             if(positionContainer < 50 && positionContainer > -50){
-                iniciarRenderTechs(convertPercent())
+                setTimeout(()=>{
+                    iniciarRenderTechs(convertPercent())
+                }, 1000)
+                
             }
         })
     })
